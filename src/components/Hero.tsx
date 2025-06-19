@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import monitor from '../../public/icons/developer.png'
-import IconOrbit from './IconOrbit'
 
 export default function Hero() {
   return (
