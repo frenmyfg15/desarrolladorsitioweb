@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .bg-verde {
+        background-color: #22FF00;
+    }
+
+    .text-verde {
+        color: #22FF00;
+    }
+
+    .shadow-d {
+        box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin-reverse-slower {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+    }
+
+    .animate-spin-reverse-slower {
+        animation: spin-reverse-slower 30s linear infinite;
+    }
+
+}
