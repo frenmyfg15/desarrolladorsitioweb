@@ -1,49 +1,43 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default function Hero() {
 
+  const imgRef = useRef<HTMLImageElement>(null);
+  const prevScroll = useRef(0);
+  const imgFondoRef = useRef<HTMLImageElement>(null);
+
+
   useEffect(() => {
-  const back = document.getElementById('layer-back');
-  const front = document.getElementById('layer-front');
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      prevScroll.current = currentScroll;
 
-  const handleMouseMove = (e: MouseEvent) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20; // rango -10 a +10
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      if (imgRef.current) {
+        const moveX = Math.min(Math.max(currentScroll * 0.5, -500), 500); // límite de -500 a 500px
+        imgRef.current.style.transform = `translateX(${moveX}px)`;
+        imgRef.current.style.transition = 'transform 0.2s ease-out';
+      }
+      if (imgFondoRef.current) {
+        const moveX = Math.min(Math.max(currentScroll * -0.5, -500), 500); // hacia la izquierda
+        imgFondoRef.current.style.transform = `translateX(${moveX}px)`;
+        imgFondoRef.current.style.transition = 'transform 0.2s ease-out';
+      }
 
-    if (back) {
-      back.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px) scale(1.1)`;
-    }
+    };
 
-    if (front) {
-      front.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-    }
-  };
-
-  window.addEventListener('mousemove', handleMouseMove);
-  return () => window.removeEventListener('mousemove', handleMouseMove);
-}, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="flex items-center justify-center h-screen px-10 py-10 flex-wrap gap-x-20 bg-transparent relative overflow-hidden pt-10">
-<div className="w-full absolute h-screen top-[-10px] overflow-hidden perspective-[1000px]">
-  {/* Capa trasera */}
-  <div id="layer-back" className="absolute inset-0 will-change-transform transition-transform duration-300">
-    <Image src="/fondo2.png" alt="Fondo 2" fill className="object-cover" />
-  </div>
-
-  {/* Capa delantera */}
-  <div id="layer-front" className="absolute inset-0 will-change-transform transition-transform duration-300">
-    <Image src="/fondo.png" alt="Fondo" fill className="object-cover" />
-  </div>
-
-  {/* Gradiente */}
-  <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-white/0 to-transparent pointer-events-none z-10" />
-</div>
-
-
+    <section
+      className="flex items-center justify-center h-screen px-10 py-10 flex-wrap gap-x-20 bg-transparent relative overflow-hidden pt-10 bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{
+        backgroundImage: `url('/fondo.png'), url('/fondo2.png')`
+      }}
+    >
 
       {/* Texto principal */}
       <div className="flex flex-col justify-between gap-y-10 w-full max-w-[30rem] md:max-w-[40rem] lg:max-w-[48rem] z-10 md:pt-10">
@@ -73,9 +67,23 @@ export default function Hero() {
         </div>
       </div>
 
-        <div className="animate__animated animate__backInRight animate__fast">
-          <Image src="/developer.png" alt="Head" width={300} height={300} className='animate__animated animate__pulse animate__infinite animate__delay-0s'/>
+      <div className="w-[250%] h-screen absolute bottom-0 animate__animated animate__fadeInUp">
+        <Image ref={imgFondoRef} src="/montañas.png" alt="Fondo" fill className="object-cover" />
+        {/* Capa de desvanecido */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-white/0 to-transparent pointer-events-none" />
+      </div>
+
+      <div className='w-[300px] h-[300px]'>
+        <div className="animate__animated animate__fadeInRight absolute bottom-0">
+          <img
+            ref={imgRef}
+            src="/dev.png"
+            alt="Imagen flotante"
+            width={500} height={500}
+          />
         </div>
+      </div>
+
 
     </section>
   )

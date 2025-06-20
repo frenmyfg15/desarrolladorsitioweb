@@ -16,7 +16,7 @@ export default function Head() {
 
 
   return (
-    <section className='fixed p-5 w-full top-0 z-40 bg-/80  h-15 items-center flex'>
+    <section className='fixed p-5 w-full top-0 z-40 bg-gray-900/20  h-15 items-center flex shadow-d'>
       <div className='flex w-full justify-between items-center'>
         <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>DEVELOPER</span></div>
         <div className='gap-8 hidden md:flex'>
