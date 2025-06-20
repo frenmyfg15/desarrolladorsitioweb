@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Github, ArrowUpRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 
 const proyectos = [
