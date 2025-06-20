@@ -9,7 +9,9 @@ export default function HomePage() {
       {/* Header fijo, fuera del flujo */}
       <Head />
       <Hero />
+      <div id='proyecto'>
       <Proyecto />
+      </div>
       <section className="h-screen flex items-center justify-center bg-gray-900 z-50">
         <h1 className="text-white text-3xl">Esta es otra seccion</h1>
       </section>

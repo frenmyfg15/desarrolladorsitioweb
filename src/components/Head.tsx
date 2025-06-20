@@ -31,7 +31,7 @@ export default function Head() {
 
         {/* Hamburger Button for Mobile */}
         <button
-          className={`md:hidden mb-2 cursor-pointer hover:scale-110 z-50 ${isOpen ? 'text-black' : 'text-verde'}`}
+          className={`md:hidden mb-2 cursor-pointer hover:scale-110 z-50 ${isOpen ? 'text-white' : 'text-verde'}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg
@@ -54,16 +54,23 @@ export default function Head() {
       {shouldRender && (
         <div
           className={`
-      h-screen w-[50%] bg-white/90 fixed top-0 right-0 z-40
+      h-screen w-[50%] bg-white/5 backdrop-blur-md border border-white/10 rounded-tl-2xl rounded-bl-2xl fixed top-0 right-0 z-40
       animate__animated animate__faster
       ${isOpen ? 'animate__slideInRight' : 'animate__slideOutRight'}
-      flex
+      flex flex-col items-center pt-20
     `}
           onAnimationEnd={() => {
-            if (!isOpen) setShouldRender(false); // Desmontar después de animar salida
+            if (!isOpen) setShouldRender(false);
           }}
         >
-          {/* Tu contenido */}
+          <div className='border-b-2 w-[80%] h-10 items-center flex border-t-2 border-[#22FF00]'>
+            <Link href="/#proyecto" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>PROYECTOS</Link>
+          </div>
+
+          <div className='border-b-2 w-[80%] h-10 items-center flex border-[#22FF00]'>
+
+          <Link href="" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>CONTACTOS</Link>
+          </div>
         </div>
       )}
 
