@@ -101,7 +101,7 @@ export default function Proyecto() {
       </div>
 
       {/* Contenido central */}
-      <div className="flex-grow flex justify-center items-center w-full mt-10">
+      <div className="flex-grow flex justify-center items-center w-full">
         <div className="relative flex flex-wrap justify-center items-center gap-8 md:gap-12 max-w-7xl w-full px-4">
           {/* Imagen ilustrativa */}
           <div
