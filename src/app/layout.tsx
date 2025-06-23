@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Kanit, Poppins } from "next/font/google"
+import { Kanit } from "next/font/google"
 import 'animate.css'
 
 // Fuente principal: Kanit
