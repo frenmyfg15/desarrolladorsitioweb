@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "Desarrollador Web Full Stack | TuNombre.dev",
   description:
     "Portafolio y servicios de desarrollo web moderno con React, Next.js, Tailwind, Node.js y más. Sitios rápidos, accesibles y optimizados para SEO.",
+icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   keywords: [
     "desarrollador web",
     "desarrollo web full stack",
@@ -55,6 +60,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Frenmy Garcia" />
+      </head>
       <body
         className={`${kanit.className} antialiased text-white scroll-smooth overflow-x-hidden`}
       >
