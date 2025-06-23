@@ -10,13 +10,6 @@ const kanit = Kanit({
   display: 'swap',
 })
 
-// Fuente secundaria: Poppins (opcional, puedes eliminar si no la usas)
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
   title: "Desarrollador Web Full Stack | TuNombre.dev",
   description:
