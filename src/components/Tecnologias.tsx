@@ -74,30 +74,17 @@ export default function Tecnologias() {
         backgroundImage: `url('/fondo.png'), url('/fondo2.png')`,
       }}
     >
-
-
       <div className="absolute top-0 left-0 w-full h-50 bg-gradient-to-b from-gray-900 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-full h-50 bg-gradient-to-t from-gray-900 via-transparent to-transparent pointer-events-none" />
 
-
       <div className="text-center max-w-4xl mx-auto z-10 mb-12">
-        <h1
-          className={`text-white font-black text-3xl md:text-5xl lg:text-6xl ${
-            isVisible ? 'animate__animated animate__fadeInDown' : ''
-          }`}
-        >
+        <h1 className={`text-white font-black text-3xl md:text-5xl lg:text-6xl ${isVisible ? 'animate__animated animate__fadeInDown' : ''}`}>
           Tecnologías
         </h1>
-        <p
-          className={`mt-4 text-gray-300 text-base md:text-lg ${
-            isVisible ? 'animate__animated animate__fadeIn' : ''
-          }`}
-        >
+        <p className={`mt-4 text-gray-300 text-base md:text-lg ${isVisible ? 'animate__animated animate__fadeIn' : ''}`}>
           Estas son algunas de las tecnologías utilizadas en desarrollo web moderno: rendimiento, accesibilidad y diseño.
         </p>
       </div>
-
-
 
       <div className="flex flex-wrap justify-center gap-6 px-4 md:px-10 z-10">
         {tecnologias.map((tech, i) => (
@@ -105,12 +92,17 @@ export default function Tecnologias() {
             key={i}
             className="w-36 h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col items-center justify-center text-white text-sm hover:scale-105 transition"
           >
-            <img src={tech.imagen} alt={tech.nombre} className="w-12 h-12 mb-2 object-contain" />
+            <Image
+              src={tech.imagen}
+              alt={tech.nombre}
+              width={48}
+              height={48}
+              className="mb-2 object-contain"
+            />
             <span>{tech.nombre}</span>
           </div>
         ))}
       </div>
-
     </section>
   )
 }
