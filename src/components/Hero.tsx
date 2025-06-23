@@ -15,12 +15,12 @@ export default function Hero() {
       prevScroll.current = currentScroll;
 
       if (imgRef.current) {
-        const moveX = Math.min(Math.max(currentScroll * 0.5, -500), 500); // límite de -500 a 500px
+        const moveX = Math.min(Math.max(currentScroll * 0.5, -500), 500);
         imgRef.current.style.transform = `translateX(${moveX}px)`;
         imgRef.current.style.transition = 'transform 0.2s ease-out';
       }
       if (imgFondoRef.current) {
-        const moveX = Math.min(Math.max(currentScroll * -0.5, -500), 500); // hacia la izquierda
+        const moveX = Math.min(Math.max(currentScroll * -0.5, -500), 500);
         imgFondoRef.current.style.transform = `translateX(${moveX}px)`;
         imgFondoRef.current.style.transition = 'transform 0.2s ease-out';
       }
@@ -39,7 +39,6 @@ export default function Hero() {
       }}
     >
 
-      {/* Texto principal */}
       <div className="flex flex-col justify-between gap-y-10 w-full max-w-[30rem] md:max-w-[40rem] lg:max-w-[48rem] z-10 md:pt-10">
         <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-center animate__animated animate__backInLeft animate__faster text-shadow-2xs">
           DESARROLLADOR FULL STACK
@@ -55,11 +54,6 @@ export default function Hero() {
 
         <div className="flex gap-5 md:gap-8 justify-center animate__animated animate__backInLeft">
           <Link href="">
-            <span className="bg-white/20 px-10 py-2 md:px-12 md:py-3 rounded-2xl font-black shadow-d hover:scale-110 transition">
-              GITHUB
-            </span>
-          </Link>
-          <Link href="">
             <span className="bg-gradient-to-r from-[#22FF00] to-[#009966] px-10 py-2 md:px-12 md:py-3 rounded-2xl font-black text-white shadow-d hover:scale-110 transition">
               LINKEDIN
             </span>
@@ -67,15 +61,17 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="w-[250%] h-screen absolute bottom-0 animate__animated animate__fadeInUp">
-        <Image ref={imgFondoRef} src="/montañas.png" alt="Fondo" fill className="object-cover" />
-        {/* Capa de desvanecido */}
+      <div ref={imgFondoRef} className='bottom-0  absolute w-[250%] h-screen'>
+
+      <div className="w-full h-full animate__animated animate__fadeInUp bg-repeat-x bg-top" style={{ backgroundImage: "url('/montaña.png')" }}>
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-white/0 to-transparent pointer-events-none" />
       </div>
+      </div>
+
 
       <div className='w-[300px] h-[300px]'>
         <div className="animate__animated animate__fadeInRight absolute bottom-0">
-          <img
+          <Image
             ref={imgRef}
             src="/dev.png"
             alt="Imagen flotante"

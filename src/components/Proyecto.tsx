@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const proyectos = [
     {
-        titulo: 'FrioExpert RD',
+        titulo: 'Servicio Tecnico RD',
         descripcion: 'Sitio web profesional para una empresa de servicios técnicos en electrodomésticos, climatización y refrigeración industrial en toda República Dominicana.',
         imagen: '/proyecto/proyecto1.png',
         web: 'https://serviciotecnicoreparaciodeelectrodomesticos.com.do/'
@@ -96,11 +96,8 @@ export default function Proyecto() {
         <section
             ref={sectionRef}
             className="flex flex-col min-h-screen bg-gray-900 overflow-hidden px-6 md:px-20 pt-20 bg-cover bg-center bg-no-repeat bg-fixed"
-            style={{
-                backgroundImage: `url('/fondo.png'), url('/fondo2.png')`,
-            }}
         >
-            {/* Encabezado */}
+
             <div className="text-center max-w-3xl mx-auto">
                 <h1
                     className={`font-black text-3xl md:text-5xl lg:text-6xl text-white ${isVisible ? 'animate__animated animate__backInLeft animate__faster' : ''
@@ -114,10 +111,10 @@ export default function Proyecto() {
                 </p>
             </div>
 
-            {/* Contenido central */}
+
             <div className="flex-grow flex justify-center items-center w-full">
                 <div className="relative flex flex-wrap justify-center items-center gap-8 md:gap-12 max-w-7xl w-full px-4">
-                    {/* Imagen ilustrativa */}
+
                     <div
                         className={`relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] transition-opacity duration-300 ${isVisible ? 'animate__animated animate__fadeInLeft' : ''
                             } ${isOpen ? 'hidden' : 'block'}`}
@@ -131,7 +128,7 @@ export default function Proyecto() {
                         />
                     </div>
 
-                    {/* Botón para ver proyectos */}
+
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className='hover:scale-110 transition cursor-pointer'
@@ -143,7 +140,6 @@ export default function Proyecto() {
                         </span>
                     </button>
 
-                    {/* Tarjeta de proyecto */}
                     <div
                         ref={imgRef}
 
@@ -152,13 +148,12 @@ export default function Proyecto() {
                             } ${isOpen ? 'block' : 'hidden'} shadow-d`}>
 
 
-                            {/* Título y descripción encima de la imagen */}
                             <div className="mb-4">
                                 <h2 className="text-white font-bold text-base mb-2 md:text-2xl">{proyecto.titulo}</h2>
                                 <p className="text-gray-300 text-sm md:text-base">{proyecto.descripcion}</p>
                             </div>
 
-                            {/* Imagen del proyecto */}
+
                             <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden rounded-lg border border-white/10">
                                 <Image
                                     src={proyecto.imagen}
@@ -168,7 +163,7 @@ export default function Proyecto() {
                                 />
                             </div>
 
-                            {/* Flechas */}
+
                             <div className="flex justify-center items-center gap-10 mt-6">
                                 <button
                                     onClick={handlePrev}

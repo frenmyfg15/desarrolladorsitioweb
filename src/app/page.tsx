@@ -1,20 +1,41 @@
 'use client'
+import About from '@/components/About';
+import Contacto from '@/components/Contacto';
+import Footer from '@/components/Footer';
 import Head from '@/components/Head';
 import Hero from '@/components/Hero';
 import Proyecto from '@/components/Proyecto';
+import Servicios from '@/components/Servicios';
+import Tecnologias from '@/components/Tecnologias';
 
 export default function HomePage() {
   return (
     <main className="h-screen">
-      {/* Header fijo, fuera del flujo */}
+
       <Head />
       <Hero />
+
       <div id='proyecto'>
       <Proyecto />
       </div>
-      <section className="h-screen flex items-center justify-center bg-gray-900 z-50">
-        <h1 className="text-white text-3xl">Esta es otra seccion</h1>
-      </section>
+
+      <div id='tecnologias'>
+        <Tecnologias/>
+      </div>
+
+      <div id='servicios'>
+        <Servicios/>
+      </div>
+
+      <div id='about'>
+        <About/>
+      </div>
+
+      <div id='contacto'>
+        <Contacto/>
+      </div>
+
+      <Footer/>
     </main>
   );
 }
