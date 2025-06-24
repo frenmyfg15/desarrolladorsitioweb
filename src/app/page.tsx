@@ -27,7 +27,7 @@ export default function HomePage() {
         <Servicios/>
       </div>
 
-      <div id='about'>
+      <div id='acercade'>
         <About/>
       </div>
 

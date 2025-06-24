@@ -22,10 +22,10 @@ export default function Head() {
         <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>DEVELOPER</span></div>
         <div className='gap-4 hidden md:flex'>
           <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>PROYECTOS</span></Link>
-          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>TECNOLOGÍAS</span></Link>
-          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>SERVICIOS</span></Link>
-          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>ABAOUT</span></Link>
-          <Link href={'/'}>
+          <Link href={'/#tecnologias'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>TECNOLOGÍAS</span></Link>
+          <Link href={'/#servicios'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>SERVICIOS</span></Link>
+          <Link href={'/#acercade'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>ACERCA DE</span></Link>
+          <Link href={'/#contacto'}>
             <span className='bg-gradient-to-r from-[#22FF00] to-[#009966] px-4 py-2 rounded-2xl text-white shadow-d'>
               CONTACTO
             </span>
@@ -80,7 +80,7 @@ export default function Head() {
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
-            <Link href="/#about" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><User color='#22FF00'/>ABOUT</Link>
+            <Link href="/#acercade" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><User color='#22FF00'/>ABOUT</Link>
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>

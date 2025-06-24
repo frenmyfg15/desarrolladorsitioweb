@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Desarrollador Web Full Stack | TuNombre.dev",
   description:
     "Portafolio y servicios de desarrollo web moderno con React, Next.js, Tailwind, Node.js y más. Sitios rápidos, accesibles y optimizados para SEO.",
-icons: {
+  icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
@@ -41,7 +41,7 @@ icons: {
     siteName: "Frenmy Garcia",
     images: [
       {
-        url: "/logo2.png", // reemplaza con tu imagen OG
+        url: "/logo2.png",
         width: 1200,
         height: 630,
         alt: "Frenmy Garcia Portafolio",
