@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import {AppWindow, SquareMousePointer, Handshake, User, Send} from 'lucide-react'
 import logo from '../../public/logo2.png'
 
 export default function Head() {
@@ -19,10 +20,13 @@ export default function Head() {
     <section className='fixed p-5 w-full top-0 z-40 border border-white/10  h-15 items-center flex shadow-d'>
       <div className='flex w-full justify-between items-center'>
         <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>DEVELOPER</span></div>
-        <div className='gap-8 hidden md:flex'>
-          <Link href={'/#proyecto'}><span className='bg-white/20 px-4 py-2 rounded-2xl font-black shadow-d'>PROYECTOS</span></Link>
+        <div className='gap-4 hidden md:flex'>
+          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>PROYECTOS</span></Link>
+          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>TECNOLOGÍAS</span></Link>
+          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>SERVICIOS</span></Link>
+          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>ABAOUT</span></Link>
           <Link href={'/'}>
-            <span className='bg-gradient-to-r from-[#22FF00] to-[#009966] px-4 py-2 rounded-2xl font-black text-white shadow-d'>
+            <span className='bg-gradient-to-r from-[#22FF00] to-[#009966] px-4 py-2 rounded-2xl text-white shadow-d'>
               CONTACTO
             </span>
           </Link>
@@ -57,31 +61,31 @@ export default function Head() {
       h-screen w-[50%] bg-white/5 backdrop-blur-3xl border border-white/10 rounded-tl-2xl rounded-bl-2xl fixed top-0 right-0 z-40 shadow-d
       animate__animated animate__faster
       ${isOpen ? 'animate__slideInRight' : 'animate__slideOutRight'}
-      flex flex-col items-center pt-20
+      flex flex-col items-center pt-20 md:hidden
     `}
           onAnimationEnd={() => {
             if (!isOpen) setShouldRender(false);
           }}
         >
-          <div className='border-b-2 w-[80%] h-10 items-center flex border-t-2 border-[#22FF00]'>
-            <Link href="/#proyecto" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>PROYECTOS</Link>
+          <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
+            <Link href="/#proyecto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><AppWindow color='#22FF00'/> PROYECTOS</Link>
           </div>
 
-          <div className='border-b-2 w-[80%] h-10 items-center flex border-[#22FF00]'>
-            <Link href="/#tecnologias" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>TECNOLOGÍAS</Link>
+          <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
+            <Link href="/#tecnologias" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><SquareMousePointer color='#22FF00'/>TECNOLOGÍAS</Link>
           </div>
 
-          <div className='border-b-2 w-[80%] h-10 items-center flex border-[#22FF00]'>
-            <Link href="/#servicios" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>SERVICIOS</Link>
+          <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
+            <Link href="/#servicios" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Handshake color='#22FF00'/>SERVICIOS</Link>
           </div>
 
-          <div className='border-b-2 w-[80%] h-10 items-center flex border-[#22FF00]'>
-            <Link href="/#about" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>ABOUT</Link>
+          <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
+            <Link href="/#about" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><User color='#22FF00'/>ABOUT</Link>
           </div>
 
-          <div className='border-b-2 w-[80%] h-10 items-center flex border-[#22FF00]'>
+          <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
 
-          <Link href="/#contacto" className='text-shadow-2xs font-black' onClick={() => setIsOpen(!isOpen)}>CONTACTOS</Link>
+          <Link href="/#contacto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Send color='#22FF00'/>CONTACTOS</Link>
           </div>
         </div>
       )}

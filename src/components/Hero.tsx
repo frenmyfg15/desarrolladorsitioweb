@@ -39,22 +39,24 @@ export default function Hero() {
       }}
     >
 
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-0" />
+
       <div className="flex flex-col justify-between gap-y-10 w-full max-w-[30rem] md:max-w-[40rem] lg:max-w-[48rem] z-10 md:pt-10">
-        <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-center animate__animated animate__backInLeft animate__faster text-shadow-2xs">
+        <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-center animate__animated animate__backInLeft animate__faster text-shadow-md">
           DESARROLLADOR FULL STACK
         </h1>
 
-        <p className="font-bold text-base md:text-lg lg:text-xl text-center animate__animated animate__backInLeft animate__fast">
+        <p className="font-bold text-base md:text-lg lg:text-xl text-center animate__animated animate__backInLeft animate__fast text-shadow-md">
           Experiencia en construcción de interfaces modernas, APIs eficientes y soluciones multiplataformas
         </p>
 
-        <p className="hidden lg:block text-base text-center animate__animated animate__backInLeft animate__fast">
+        <p className="hidden lg:block text-base text-center animate__animated animate__backInLeft animate__fast text-shadow-md">
           También experiencia trabajando en equipos ágiles y manteniendo buenas prácticas de desarrollo.
         </p>
 
         <div className="flex gap-5 md:gap-8 justify-center animate__animated animate__backInLeft">
           <Link href="">
-            <span className="bg-gradient-to-r from-[#22FF00] to-[#009966] px-10 py-2 md:px-12 md:py-3 rounded-2xl font-black text-white shadow-d hover:scale-110 transition">
+            <span className="bg-gradient-to-r from-[#22FF00] to-[#009966] px-10 py-2 md:px-12 md:py-3 rounded-2xl font-black text-white shadow-d hover:scale-110 transition text-shadow-md">
               LINKEDIN
             </span>
           </Link>
@@ -63,11 +65,9 @@ export default function Hero() {
 
       <div ref={imgFondoRef} className='bottom-0  absolute w-[250%] h-screen'>
 
-      <div className="w-full h-full animate__animated animate__fadeInUp bg-repeat-x bg-top" style={{ backgroundImage: "url('/montaña.png')" }}>
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-gray-900 via-white/0 to-transparent pointer-events-none" />
+        <div className="w-full h-full animate__animated animate__fadeInUp bg-repeat-x bg-top" style={{ backgroundImage: "url('/montaña.png')" }}>
+        </div>
       </div>
-      </div>
-
 
       <div className='w-[300px] h-[300px]'>
         <div className="animate__animated animate__fadeInRight absolute bottom-0">

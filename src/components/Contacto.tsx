@@ -25,7 +25,7 @@ export default function Contacto() {
     <section
       ref={sectionRef}
       id="contacto"
-      className="relative px-6 py-32 min-h-screen bg-gray-900 text-white"
+      className="relative px-6 py-32 min-h-screen bg-gray-900 text-white flex flex-col justify-center"
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 

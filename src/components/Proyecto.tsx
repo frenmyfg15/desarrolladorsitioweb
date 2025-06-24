@@ -98,46 +98,66 @@ export default function Proyecto() {
       ref={sectionRef}
       className="flex flex-col min-h-screen bg-gray-900 overflow-hidden px-6 md:px-20 pt-20 bg-cover bg-center bg-no-repeat bg-fixed"
     >
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h1 className={`font-black text-3xl md:text-5xl lg:text-6xl text-white ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
+      {/* Header con animación */}
+      <motion.div
+        className="text-center max-w-3xl mx-auto mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-white text-shadow-md">
           PROYECTOS
         </h1>
-        <p className={`mt-4 text-gray-300 text-base md:text-lg ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
+        <p className="mt-4 text-gray-300 text-base md:text-lg text-shadow-md">
           Algunos trabajos recientes enfocados en desarrollo web, aplicaciones y experiencias digitales modernas.
         </p>
-      </div>
+      </motion.div>
 
       {/* Contenido */}
       <div className="flex-grow flex justify-center items-center w-full">
         <div className="relative flex flex-wrap justify-center items-center gap-8 max-w-7xl w-full px-4">
-          {/* Imagen lateral */}
-          <div
+          {/* Imagen lateral con animación */}
+          <motion.div
             ref={imgFondoContainer}
-            className={`relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] transition-opacity duration-300 ${
-              isVisible ? 'animate__animated animate__fadeInLeft' : ''
-            } ${isOpen ? 'hidden' : 'block'}`}
+            initial={{ opacity: 0, x: -50 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Image
-              src="/proyecto/dev.png"
-              alt="Ilustración de desarrollador"
-              fill
-              className="object-contain"
-            />
-          </div>
+            <div
+              className={`relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] ${
+                isOpen ? 'hidden' : 'block'
+              }`}
+            >
+              <Image
+                src="/proyecto/dev.png"
+                alt="Ilustración de desarrollador"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </motion.div>
 
-          {/* Botón */}
-          <button
+          {/* Botón con animación */}
+          <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className="hover:scale-110 transition cursor-pointer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.4 }}
           >
-            <span className="bg-gradient-to-r from-[#22FF00] to-[#009966] px-8 py-3 rounded-2xl font-black text-white shadow-md">
+            <span className="bg-gradient-to-r from-[#22FF00] to-[#009966] px-8 py-3 rounded-2xl font-black text-white shadow-md text-shadow-md">
               {isOpen ? 'OCULTAR PROYECTOS' : 'VER PROYECTOS'}
             </span>
-          </button>
+          </motion.button>
 
-          {/* Contenido del proyecto */}
-          <div ref={imgRef} className="w-full max-w-lg">
+          {/* Contenido del proyecto animado */}
+          <motion.div
+            ref={imgRef}
+            className="w-full max-w-lg"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <AnimatePresence mode="wait">
               {isOpen && (
                 <motion.div
@@ -149,8 +169,8 @@ export default function Proyecto() {
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-md"
                 >
                   <div className="mb-4">
-                    <h2 className="text-white font-bold text-base mb-2 md:text-2xl">{proyecto.titulo}</h2>
-                    <p className="text-gray-300 text-sm md:text-base">{proyecto.descripcion}</p>
+                    <h2 className="text-white font-bold text-base mb-2 md:text-2xl text-shadow-md">{proyecto.titulo}</h2>
+                    <p className="text-gray-300 text-sm md:text-base text-shadow-md">{proyecto.descripcion}</p>
                   </div>
 
                   <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden rounded-lg border border-white/10 mb-4">
@@ -191,7 +211,7 @@ export default function Proyecto() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

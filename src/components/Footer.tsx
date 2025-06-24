@@ -14,8 +14,7 @@ export default function Footer() {
         >
 
 
-            <div className="absolute top-0 left-0 w-full h-50 bg-gradient-to-b from-gray-900 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-full h-50 bg-gradient-to-t from-gray-900 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black via-transparent to-transparent pointer-events-none z-0" />
 
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 
