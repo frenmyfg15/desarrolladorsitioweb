@@ -5,17 +5,17 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 
 const tecnologias = [
-  { nombre: 'React', imagen: '/tecnologias/react.png' },
-  { nombre: 'Next.js', imagen: '/tecnologias/nextjs.png' },
-  { nombre: 'Tailwind', imagen: '/tecnologias/tailwind.png' },
-  { nombre: 'Node.js', imagen: '/tecnologias/nodejs.png' },
-  { nombre: 'TypeScript', imagen: '/tecnologias/typescript.png' },
-  { nombre: 'MySQL', imagen: '/tecnologias/mysql.png' },
-  { nombre: 'MongoDB', imagen: '/tecnologias/mongodb.png' },
-  { nombre: 'Firebase', imagen: '/tecnologias/firebase.png' },
-  { nombre: 'Prisma', imagen: '/tecnologias/prisma.png' },
-  { nombre: 'GitHub', imagen: '/tecnologias/github.png' },
-  { nombre: 'Vercel', imagen: '/tecnologias/vercel.png' },
+  { nombre: 'React', imagen: '/tecnologias/react.webp' },
+  { nombre: 'Next.js', imagen: '/tecnologias/nextjs.webp' },
+  { nombre: 'Tailwind', imagen: '/tecnologias/tailwind.webp' },
+  { nombre: 'Node.js', imagen: '/tecnologias/nodejs.webp' },
+  { nombre: 'TypeScript', imagen: '/tecnologias/typescript.webp' },
+  { nombre: 'MySQL', imagen: '/tecnologias/mysql.webp' },
+  { nombre: 'MongoDB', imagen: '/tecnologias/mongodb.webp' },
+  { nombre: 'Firebase', imagen: '/tecnologias/firebase.webp' },
+  { nombre: 'Prisma', imagen: '/tecnologias/prisma.webp' },
+  { nombre: 'GitHub', imagen: '/tecnologias/github.webp' },
+  { nombre: 'Vercel', imagen: '/tecnologias/vercel.webp' },
 ]
 
 export default function Tecnologias() {
@@ -71,7 +71,7 @@ export default function Tecnologias() {
       id="about"
       className="relative min-h-screen px-6 py-20 bg-fixed bg-cover bg-center overflow-hidden flex flex-col justify-center"
       style={{
-        backgroundImage: `url('/fondo.png'), url('/fondo2.png')`,
+        backgroundImage: `url('/fondo.webp'), url('/fondo2.webp')`,
       }}
     >
       {/* Degradados para ocultar bordes */}

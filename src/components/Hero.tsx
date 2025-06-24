@@ -35,7 +35,7 @@ export default function Hero() {
     <section
       className="flex items-center justify-center h-screen px-10 py-10 flex-wrap gap-x-20 bg-transparent relative overflow-hidden pt-10 bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: `url('/fondo.png'), url('/fondo2.png')`
+        backgroundImage: `url('/fondo.webp'), url('/fondo2.webp')`
       }}
     >
 
@@ -65,7 +65,7 @@ export default function Hero() {
 
       <div ref={imgFondoRef} className='bottom-0  absolute w-[250%] h-screen'>
 
-        <div className="w-full h-full animate__animated animate__fadeInUp bg-repeat-x bg-top" style={{ backgroundImage: "url('/montaña.png')" }}>
+        <div className="w-full h-full animate__animated animate__fadeInUp bg-repeat-x bg-top" style={{ backgroundImage: "url('/montaña.webp')" }}>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export default function Hero() {
         <div className="animate__animated animate__fadeInRight absolute bottom-0">
           <Image
             ref={imgRef}
-            src="/dev.png"
+            src="/dev.webp"
             alt="Imagen flotante"
             width={500} height={500}
           />

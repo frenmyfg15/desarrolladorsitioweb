@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {AppWindow, SquareMousePointer, Handshake, User, Send} from 'lucide-react'
-import logo from '../../public/logo2.png'
+import logo from '../../public/logo2.webp'
 
 export default function Head() {
   const [isOpen, setIsOpen] = useState(false);

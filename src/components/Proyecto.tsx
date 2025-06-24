@@ -10,25 +10,25 @@ const proyectos = [
   {
     titulo: 'Servicio Tecnico RD',
     descripcion: 'Sitio web profesional para una empresa de servicios técnicos en electrodomésticos, climatización y refrigeración industrial en toda República Dominicana.',
-    imagen: '/proyecto/proyecto1.png',
+    imagen: '/proyecto/proyecto1.webp',
     web: 'https://serviciotecnicoreparaciodeelectrodomesticos.com.do/',
   },
   {
     titulo: 'Bienes Raices',
     descripcion: 'Presencia online de empresa inmobiliaria con sistema de login, protección de APIs y token de seguridad.',
-    imagen: '/proyecto/proyecto4.png',
+    imagen: '/proyecto/proyecto4.webp',
     web: 'https://bienes-raices-rd-frontend-9gbu.vercel.app/',
   },
   {
     titulo: 'BrilloHogar',
     descripcion: 'Sitio web para una empresa en España de servicios de limpieza con sistema de citas y panel de control.',
-    imagen: '/proyecto/proyecto2.png',
+    imagen: '/proyecto/proyecto2.webp',
     web: 'https://serviciodelimpiezahogarvaldemoro.es/',
   },
   {
     titulo: 'OficiosYa',
     descripcion: 'Plataforma web responsive que conecta usuarios con profesionales de distintos oficios.',
-    imagen: '/proyecto/proyecto3.png',
+    imagen: '/proyecto/proyecto3.webp',
     web: 'https://cozy-otter-c9b41f.netlify.app',
   },
 ]
@@ -129,7 +129,7 @@ export default function Proyecto() {
               }`}
             >
               <Image
-                src="/proyecto/dev.png"
+                src="/proyecto/dev.webp"
                 alt="Ilustración de desarrollador"
                 fill
                 className="object-contain"
