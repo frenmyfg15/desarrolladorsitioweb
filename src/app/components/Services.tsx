@@ -49,13 +49,14 @@ const tiers = [
   },
 ]
 
-function classNames(...classes: any) {
+function classNames(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Services() {
   return (
     <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8 shadow-md">
+
       {/* Fondo decorativo */}
       <div
         aria-hidden="true"
