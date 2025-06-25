@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {AppWindow, SquareMousePointer, Handshake, User, Send} from 'lucide-react'
-import logo from '../../public/logo2.webp'
+import logo from '../../../../public/logo2.webp'
 
 export default function Head() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,11 +21,11 @@ export default function Head() {
       <div className='flex w-full justify-between items-center'>
         <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>DEVELOPER</span></div>
         <div className='gap-4 hidden md:flex'>
-          <Link href={'/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>PROYECTOS</span></Link>
-          <Link href={'/#tecnologias'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>TECNOLOGÍAS</span></Link>
-          <Link href={'/#servicios'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>SERVICIOS</span></Link>
-          <Link href={'/#acercade'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>ACERCA DE</span></Link>
-          <Link href={'/#contacto'}>
+          <Link href={'/porfolio/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>PROYECTOS</span></Link>
+          <Link href={'/porfolio/#tecnologias'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>TECNOLOGÍAS</span></Link>
+          <Link href={'/porfolio/#servicios'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>SERVICIOS</span></Link>
+          <Link href={'/porfolio/#acercade'}><span className=' px-2 py-2 rounded-2xl text-shadow-md'>ACERCA DE</span></Link>
+          <Link href={'/porfolio/#contacto'}>
             <span className='bg-gradient-to-r from-[#22FF00] to-[#009966] px-4 py-2 rounded-2xl text-white shadow-d'>
               CONTACTO
             </span>
@@ -68,24 +68,24 @@ export default function Head() {
           }}
         >
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
-            <Link href="/#proyecto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><AppWindow color='#22FF00'/> PROYECTOS</Link>
+            <Link href="/porfolio/#proyecto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><AppWindow color='#22FF00'/> PROYECTOS</Link>
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
-            <Link href="/#tecnologias" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><SquareMousePointer color='#22FF00'/>TECNOLOGÍAS</Link>
+            <Link href="/porfolio/#tecnologias" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><SquareMousePointer color='#22FF00'/>TECNOLOGÍAS</Link>
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
-            <Link href="/#servicios" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Handshake color='#22FF00'/>SERVICIOS</Link>
+            <Link href="/porfolio/#servicios" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Handshake color='#22FF00'/>SERVICIOS</Link>
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
-            <Link href="/#acercade" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><User color='#22FF00'/>ABOUT</Link>
+            <Link href="/porfolio/#acercade" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><User color='#22FF00'/>ABOUT</Link>
           </div>
 
           <div className='border-b-1 w-[80%] h-10 items-center flex border-gray-300'>
 
-          <Link href="/#contacto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Send color='#22FF00'/>CONTACTOS</Link>
+          <Link href="/porfolio/#contacto" className='text-sm font-medium flex gap-3' onClick={() => setIsOpen(!isOpen)}><Send color='#22FF00'/>CONTACTOS</Link>
           </div>
         </div>
       )}

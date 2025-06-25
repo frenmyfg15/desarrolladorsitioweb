@@ -1,41 +1,43 @@
-'use client'
-import About from '@/components/About';
-import Contacto from '@/components/Contacto';
-import Footer from '@/components/Footer';
-import Head from '@/components/Head';
-import Hero from '@/components/Hero';
-import Proyecto from '@/components/Proyecto';
-import Servicios from '@/components/Servicios';
-import Tecnologias from '@/components/Tecnologias';
 
-export default function HomePage() {
+import Enfoque from "./components/Enfoque";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Menu from "./components/Menu";
+import Nosotros from "./components/Nostros";
+import Services from "./components/Services";
+import Testimonios from "./components/Testimonios";
+import Contacto from "./porfolio/components/Contacto";
+
+
+export default function Home() {
   return (
-    <main className="h-screen">
-
-      <Head />
+    <div className="">
+      <Menu />
       <Hero />
 
-      <div id='proyecto'>
-      <Proyecto />
+      <div id="servicios">
+        <Services />
       </div>
 
-      <div id='tecnologias'>
-        <Tecnologias/>
+      <div id="enfoque">
+        <Enfoque />
       </div>
 
-      <div id='servicios'>
-        <Servicios/>
+      <div id="nosotros">
+        <Nosotros />
       </div>
 
-      <div id='acercade'>
-        <About/>
+      <div id="testimonios">
+        <Testimonios/>
       </div>
 
-      <div id='contacto'>
-        <Contacto/>
+      <div id="contacto">
+        <Contacto modo="blanco"/>
       </div>
 
       <Footer/>
-    </main>
+
+
+    </div>
   );
 }
