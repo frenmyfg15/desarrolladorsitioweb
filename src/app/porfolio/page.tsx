@@ -1,5 +1,4 @@
 
-
 'use client'
 
 import About from "./components/About";
