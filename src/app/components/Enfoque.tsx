@@ -1,4 +1,7 @@
+'use client'
+import { motion } from 'framer-motion'
 import { Cloud, LockIcon, ServerIcon } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react';
 
 const features = [
   {
@@ -20,12 +23,39 @@ const features = [
 ]
 
 export default function Enfoque() {
+
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setIsVisible(true) } else {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    const current = sectionRef.current
+    if (current) observer.observe(current)
+
+    return () => {
+      if (current) observer.unobserve(current)
+    }
+  }, [])
+
   return (
-    <div className="overflow-hidden bg-[#F0FDF4] py-24 sm:py-32 shadow-md">
+    <div className="overflow-hidden bg-white py-24 shadow-md" ref={sectionRef}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
           {/* Texto */}
-          <div className="lg:pt-4 lg:pr-8">
+          <motion.div
+            className="lg:pt-4 lg:pr-8"
+            initial={{ opacity: 0, x: -250 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <div className="lg:max-w-lg">
               <h2 className="text-sm font-semibold text-emerald-600 uppercase tracking-wide">
                 Nuestro enfoque
@@ -51,10 +81,13 @@ export default function Enfoque() {
                 ))}
               </dl>
             </div>
-          </div>
+          </motion.div>
 
           {/* Imagen */}
-          <img
+          <motion.img
+            initial={{ opacity: 0, x: 250 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             alt="Product screenshot"
             src="/enfoque/fondo.png"
             width={2432}

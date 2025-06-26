@@ -1,6 +1,8 @@
 'use client'
 
 import { CheckIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 const tiers = [
   {
@@ -54,8 +56,30 @@ function classNames(...classes: (string | false | null | undefined)[]): string {
 }
 
 export default function Services() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setIsVisible(true) } else {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    const current = sectionRef.current
+    if (current) observer.observe(current)
+
+    return () => {
+      if (current) observer.unobserve(current)
+    }
+  }, [])
+
+
   return (
-    <div className="relative isolate px-6 py-24 sm:py-32 lg:px-8 shadow-md">
+    <div ref={sectionRef} className="relative isolate px-6 py-24 sm:py-32 lg:px-8 shadow-md bg-white">
 
       {/* Fondo decorativo */}
       <div
@@ -71,7 +95,12 @@ export default function Services() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl text-center">
+      <motion.div
+        className="mx-auto max-w-4xl text-center"
+        initial={{ opacity: 0, x: 250 }}
+        animate={isVisible ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         <h2 className="text-base font-semibold text-emerald-600">Servicios</h2>
         <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Planes de desarrollo web
@@ -79,9 +108,14 @@ export default function Services() {
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg text-gray-600">
           Elige el tipo de proyecto ideal según tus necesidades y escala de crecimiento.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-10 lg:max-w-5xl lg:grid-cols-3 lg:gap-x-8">
+      <motion.div
+        className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-y-10 lg:max-w-5xl lg:grid-cols-3 lg:gap-x-8"
+        initial={{ opacity: 0, x: -250 }}
+        animate={isVisible ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         {tiers.map((tier) => (
           <div
             key={tier.id}
@@ -121,7 +155,7 @@ export default function Services() {
             </a>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }

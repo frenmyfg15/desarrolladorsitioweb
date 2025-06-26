@@ -16,7 +16,7 @@ export default function PoliticaEmpresa() {
 
           <section className="space-y-6 text-sm md:text-base leading-relaxed text-gray-700">
             <p>
-              En <strong>Brillo Hogar</strong>, nos regimos por principios de calidad, integridad y responsabilidad. Nuestra política empresarial está diseñada para garantizar servicios eficientes, seguros y confiables.
+              En <strong>NovaForge</strong>, nos regimos por principios de calidad, integridad y responsabilidad. Nuestra política empresarial está diseñada para garantizar servicios eficientes, seguros y confiables.
             </p>
 
             <div>
@@ -55,7 +55,7 @@ export default function PoliticaEmpresa() {
             </div>
 
             <p>
-              ¿Tienes preguntas o comentarios? Escríbenos a: <strong>info@brillohogar.com</strong>
+              ¿Tienes preguntas o comentarios? Escríbenos a: <strong>info@NovaForge.com</strong>
             </p>
           </section>
         </div>

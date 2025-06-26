@@ -44,15 +44,18 @@ export default function Contacto({ modo = 'oscuro' }: ContactoProps) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) { setIsVisible(true) } else {
+          setIsVisible(false)
+        }
       },
       { threshold: 0.3 }
     )
 
-    const section = sectionRef.current
-    if (section) observer.observe(section)
+    const current = sectionRef.current
+    if (current) observer.observe(current)
+
     return () => {
-      if (section) observer.unobserve(section)
+      if (current) observer.unobserve(current)
     }
   }, [])
 

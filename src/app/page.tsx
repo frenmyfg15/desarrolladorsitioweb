@@ -13,29 +13,32 @@ export default function Home() {
   return (
     <div className="">
       <Menu />
-      <Hero />
 
-      <div id="servicios">
+      <div className="overflow-x-hidden">
+        <Hero />
+      </div>
+
+      <div id="servicios" className="overflow-x-hidden">
         <Services />
       </div>
 
-      <div id="enfoque">
+      <div id="enfoque" className="overflow-x-hidden">
         <Enfoque />
       </div>
 
-      <div id="nosotros">
+      <div id="nosotros" className="overflow-x-hidden">
         <Nosotros />
       </div>
 
-      <div id="testimonios">
-        <Testimonios/>
+      <div id="testimonios" className="overflow-x-hidden">
+        <Testimonios />
       </div>
 
-      <div id="contacto">
-        <Contacto modo="blanco"/>
+      <div id="contacto" className="overflow-x-hidden">
+        <Contacto modo="blanco" />
       </div>
 
-      <Footer/>
+      <Footer />
 
 
     </div>

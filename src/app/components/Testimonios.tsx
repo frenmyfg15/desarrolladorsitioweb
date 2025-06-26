@@ -1,4 +1,8 @@
+'use client'
+
 import { Star } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 const testimonials = [
   {
@@ -25,13 +29,45 @@ const testimonials = [
 ]
 
 export default function Testimonios() {
+
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setIsVisible(true) } else {
+          setIsVisible(false)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    const current = sectionRef.current
+    if (current) observer.observe(current)
+
+    return () => {
+      if (current) observer.unobserve(current)
+    }
+  }, [])
+
   return (
-    <section className="bg-[#F0FDF4] py-24 sm:py-32 px-6 shadow-md">
+    <section className="bg-[#F0FDF4] py-24 sm:py-32 px-6 shadow-md" ref={sectionRef}>
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        <motion.h2
+          className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+          initial={{ opacity: 0, x: 250 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           Opiniones reales de nuestros clientes
-        </h2>
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        </motion.h2>
+        <motion.div
+          className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0, x: -250 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           {testimonials.map((t, index) => (
             <div
               key={index}
@@ -57,7 +93,7 @@ export default function Testimonios() {
               <p className="text-sm text-gray-700">{t.content}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

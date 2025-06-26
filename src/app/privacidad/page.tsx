@@ -14,15 +14,15 @@ export default function PoliticaPrivacidad() {
 
           <section className="space-y-6 text-sm md:text-base leading-relaxed text-gray-700">
             <p>
-              En <strong>Brillo Hogar</strong>, nos comprometemos a proteger tu privacidad y garantizar que tus datos personales sean tratados de forma segura, confidencial y conforme al RGPD.
+              En <strong>NovaForge</strong>, nos comprometemos a proteger tu privacidad y garantizar que tus datos personales sean tratados de forma segura, confidencial y conforme al RGPD.
             </p>
 
             <div>
               <h2 className="text-xl font-semibold text-emerald-600">1. Responsable del tratamiento</h2>
               <p>
-                <strong>Nombre comercial:</strong> Brillo Hogar<br />
+                <strong>Nombre comercial:</strong> NovaForge<br />
                 <strong>Teléfono:</strong> 617 547 481<br />
-                <strong>Correo electrónico:</strong> info@brillohogar.com<br />
+                <strong>Correo electrónico:</strong> info@NovaForge.com<br />
                 <strong>Dirección:</strong> Valdemoro, Madrid, España
               </p>
             </div>

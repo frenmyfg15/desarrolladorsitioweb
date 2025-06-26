@@ -20,7 +20,7 @@ const proyectos = [
     web: 'https://bienes-raices-rd-frontend-9gbu.vercel.app/',
   },
   {
-    titulo: 'BrilloHogar',
+    titulo: 'NovaForge',
     descripcion: 'Sitio web para una empresa en España de servicios de limpieza con sistema de citas y panel de control.',
     imagen: '/proyecto/proyecto2.webp',
     web: 'https://serviciodelimpiezahogarvaldemoro.es/',

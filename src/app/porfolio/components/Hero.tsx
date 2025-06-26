@@ -42,15 +42,15 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-0" />
 
       <div className="flex flex-col justify-between gap-y-10 w-full max-w-[30rem] md:max-w-[40rem] lg:max-w-[48rem] z-10 md:pt-10">
-        <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-center animate__animated animate__backInLeft animate__faster text-shadow-md">
+        <h1 className="font-black text-3xl md:text-5xl lg:text-6xl text-center animate__animated animate__backInLeft animate__faster text-shadow-md text-white">
           DESARROLLADOR FULL STACK
         </h1>
 
-        <p className="font-bold text-base md:text-lg lg:text-xl text-center animate__animated animate__backInLeft animate__fast text-shadow-md">
+        <p className="font-bold text-base md:text-lg lg:text-xl text-center animate__animated animate__backInLeft animate__fast text-shadow-md text-white">
           Experiencia en construcción de interfaces modernas, APIs eficientes y soluciones multiplataformas
         </p>
 
-        <p className="hidden lg:block text-base text-center animate__animated animate__backInLeft animate__fast text-shadow-md">
+        <p className="hidden lg:block text-base text-center animate__animated animate__backInLeft animate__fast text-shadow-md text-white">
           También experiencia trabajando en equipos ágiles y manteniendo buenas prácticas de desarrollo.
         </p>
 

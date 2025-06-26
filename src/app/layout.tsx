@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from 'next/font/google'
 import CookiesBanner from "./components/CookiesBanner";
+import 'animate.css';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -52,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={outfit.className}
+        className={`${outfit.className}`}
       >
         {children}
       </body>

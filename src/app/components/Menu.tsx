@@ -2,14 +2,20 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppWindow, Handshake, User, Send, Star, AlignCenter, X } from 'lucide-react'
 
 export default function Menu() {
     const [open, setOpen] = useState(false);
-    console.log(open)
+    const [shouldRender, setShouldRender] = useState(false);
+
+    useEffect(() => {
+        if (open) setShouldRender(true);
+    }, [open]);
+
+
     return (
-        <section className={`flex justify-between px-6 py-4 fixed w-full items-center z-50 ${open ? '':'backdrop-blur-2xl'}  bg-white/5`}>
+        <section className={`flex justify-between px-6 py-4 fixed top-0 w-full items-center z-40 ${open ? '' : 'backdrop-blur-2xl'}  bg-white/5`}>
             <Link href={'/'} className="flex items-center gap-3">
                 <Image src="/logo.png" width={40} height={40} alt="Logo de la página" />
                 <span className="text-lg font-bold text-[#334155] tracking-tight">NovaForge</span>
@@ -34,25 +40,37 @@ export default function Menu() {
             </nav>
 
             {/*Icono del menu en movil*/}
-            <button className='z-50 cursor-pointer hover:scale-110 transition md:hidden' onClick={() => setOpen(ref => !ref)}>
+            <button className='z-50 cursor-pointer hover:scale-110 transition md:hidden' 
+            onClick={() => setOpen(ref => !ref)}>
                 <span>
                     {
                         open ?
-                        <X/>
-                        :
-                        <AlignCenter />
+                            <X />
+                            :
+                            <AlignCenter />
                     }
                 </span>
             </button>
 
             {/*Navegador para movil*/}
-            <nav className={`w-1/2 h-screen flex-col fixed right-0 top-0 shadow-md bg-white/5 backdrop-blur-sm pt-15 ${open ? 'flex':'hidden'}`}>
+            {shouldRender && (
+            <div
+                className={`
+                    h-screen w-[50%] bg-white/5 backdrop-blur-3xl border border-white/10 rounded-tl-2xl rounded-bl-2xl fixed top-0 right-0 z-40 shadow-d
+                    animate__animated animate__faster
+                    ${open ? 'animate__slideInRight' : 'animate__slideOutRight'}
+                    flex flex-col pt-20 md:hidden
+                `}
+                onAnimationEnd={() => {
+                    if (!open) setShouldRender(false);
+                }}
+            >
                 <Link onClick={() => setOpen(ref => !ref)} href={'/#nosotros'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><User color='#009975' /> NOSOTROS</span></Link>
                 <Link onClick={() => setOpen(ref => !ref)} href={'/#servicios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Handshake color='#009975' /> SERVICIOS</span></Link>
                 <Link onClick={() => setOpen(ref => !ref)} href={'/#enfoque'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><AppWindow color='#009975' /> ENFOQUE</span></Link>
                 <Link onClick={() => setOpen(ref => !ref)} href={'/#testimonios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Star color='#009975' /> TESTIMONIOS</span></Link>
                 <Link onClick={() => setOpen(ref => !ref)} href={'/#contacto'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Send color='#009975' /> CONTACTAR</span></Link>
-            </nav>
+            </div>)}
         </section>
     )
 }
