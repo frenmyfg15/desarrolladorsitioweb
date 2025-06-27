@@ -20,6 +20,12 @@ const proyectos = [
     web: 'https://bienes-raices-rd-frontend-9gbu.vercel.app/',
   },
   {
+    titulo: 'Desarrollador Web',
+    descripcion: 'Sitio personal para ofrecer servicios de desarrollo web elegantes, optimización SEO, diseño responsive y moderno. Desarrollado con TypeScript y Next.js.',
+    imagen: '/proyecto/proyecto6.webp',
+    web: 'https://desarrolladorsitioweb.es/',
+  },
+  {
     titulo: 'NovaForge',
     descripcion: 'Sitio web para una empresa en España de servicios de limpieza con sistema de citas y panel de control.',
     imagen: '/proyecto/proyecto2.webp',
@@ -131,9 +137,8 @@ export default function Proyecto() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div
-              className={`relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] ${
-                isOpen ? 'hidden' : 'block'
-              }`}
+              className={`relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] ${isOpen ? 'hidden' : 'block'
+                }`}
             >
               <Image
                 src="/proyecto/dev.webp"

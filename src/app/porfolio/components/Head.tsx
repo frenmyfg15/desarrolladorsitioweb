@@ -19,7 +19,7 @@ export default function Head() {
   return (
     <section className='fixed p-5 w-full top-0 z-40 border border-white/10  h-15 items-center flex shadow-d'>
       <div className='flex w-full justify-between items-center'>
-        <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>DEVELOPER</span></div>
+        <div className='flex gap-5 items-center'><span className='font-black'><Image src={logo} alt='Logo de la página' className='w-[30px] rotate-90' /></span><span className='text-verde font-black text-shadow-2xs text-2xl'>Frenmy García</span></div>
         <div className='gap-4 hidden md:flex'>
           <Link href={'/porfolio/#proyecto'}><span className=' px-2 py-2 rounded-2xl text-shadow-md text-white'>PROYECTOS</span></Link>
           <Link href={'/porfolio/#tecnologias'}><span className=' px-2 py-2 rounded-2xl text-shadow-md text-white'>TECNOLOGÍAS</span></Link>
