@@ -31,7 +31,14 @@ const proyectos = [
     imagen: '/proyecto/proyecto3.webp',
     web: 'https://cozy-otter-c9b41f.netlify.app',
   },
+  {
+    titulo: 'Gestor de Tareas',
+    descripcion: 'Mini aplicación elegante y funcional para gestión de tareas, implementando useReducer, custom hook, localStorage y diseño responsivo.',
+    imagen: '/proyecto/proyecto5.webp',
+    web: 'https://miapp-tareas.vercel.app/',
+  },
 ]
+
 
 export default function Proyecto() {
   const sectionRef = useRef<HTMLElement>(null)

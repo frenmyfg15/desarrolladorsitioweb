@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from 'next/font/google'
-import CookiesBanner from "./components/CookiesBanner";
 import 'animate.css';
 
 const outfit = Outfit({
@@ -57,7 +56,6 @@ export default function RootLayout({
       >
         {children}
       </body>
-      <CookiesBanner/>
     </html>
   );
 }

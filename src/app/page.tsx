@@ -1,4 +1,5 @@
 
+import CookiesBanner from "./components/CookiesBanner";
 import Enfoque from "./components/Enfoque";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -39,6 +40,7 @@ export default function Home() {
       </div>
 
       <Footer />
+      <CookiesBanner/>
 
 
     </div>
