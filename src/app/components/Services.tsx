@@ -51,9 +51,10 @@ const tiers = [
   },
 ]
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
+function classNames(...classes: (string | false | null | undefined)[]): string {
+  return classes.filter(Boolean).join(' ');
 }
+
 
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false)
