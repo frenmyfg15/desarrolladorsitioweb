@@ -77,7 +77,6 @@ export default function Services() {
     }
   }, [])
 
-
   return (
     <div ref={sectionRef} className="relative isolate px-6 py-24 sm:py-32 lg:px-8 shadow-md bg-white">
 
@@ -126,6 +125,10 @@ export default function Services() {
           >
             <h3 className="text-lg font-semibold">{tier.name}</h3>
             <p className="mt-4 flex items-baseline gap-x-1">
+              {/* Aquí se añade el texto "desde" con un tamaño de fuente pequeño */}
+              <span className={classNames(tier.featured ? 'text-emerald-100' : 'text-gray-500', 'text-sm font-normal')}>
+                desde
+              </span>
               <span className={classNames(tier.featured ? 'text-white' : 'text-gray-900', 'text-4xl font-bold')}>
                 {tier.priceMonthly}
               </span>

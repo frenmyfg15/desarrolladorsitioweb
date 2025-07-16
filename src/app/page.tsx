@@ -6,8 +6,10 @@ import Hero from "./components/Hero";
 import Menu from "./components/Menu";
 import Nosotros from "./components/Nostros";
 import Services from "./components/Services";
+import SummerOfferBanner from "./components/SummerOfferBanner";
 import Testimonios from "./components/Testimonios";
 import Contacto from "./porfolio/components/Contacto";
+import NuestrosServicios from "./porfolio/components/NuestrosServicios";
 
 
 export default function Home() {
@@ -15,12 +17,22 @@ export default function Home() {
     <div className="">
       <Menu />
 
+      <div className="flex justify-center z-80">
+        <div className="absolute top-20 w-full">
+        <SummerOfferBanner />
+        </div>
+      </div>
+
       <div className="overflow-x-hidden">
         <Hero />
       </div>
 
-      <div id="servicios" className="overflow-x-hidden">
+      <div id="planes" className="overflow-x-hidden">
         <Services />
+      </div>
+
+      <div id="servicios" className="overflow-x-hidden">
+        <NuestrosServicios/>
       </div>
 
       <div id="enfoque" className="overflow-x-hidden">
@@ -40,7 +52,7 @@ export default function Home() {
       </div>
 
       <Footer />
-      <CookiesBanner/>
+      <CookiesBanner />
 
 
     </div>

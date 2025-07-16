@@ -2,23 +2,18 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-const links = [
-  { name: 'Sobre nosotros', href: '#' },
-  { name: 'Equipo creativo', href: '#' },
-  { name: 'Nuestra misión', href: '#' },
-  { name: 'Contacto directo', href: '#' },
-]
+
 const stats = [
-  { name: 'Proyectos completados', value: '120+' },
-  { name: 'Clientes felices', value: '95%' },
-  { name: 'Miembros en el equipo', value: '15' },
-  { name: 'Años de experiencia', value: '6+' },
+  { name: 'Proyectos entregados', value: '50+' },
+  { name: 'Clientes satisfechos', value: '100%' },
+  { name: 'Años de trayectoria', value: '4' },
+  { name: 'Soluciones a medida', value: 'Siempre' },
 ]
 
 export default function Nosotros() {
 
   const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,9 +42,11 @@ export default function Nosotros() {
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl">Nos apasiona crear soluciones digitales</h2>
+          <h2 className="text-5xl font-bold tracking-tight text-black sm:text-6xl">
+            Impulsamos tu visión digital con experiencia.
+          </h2>
           <p className="mt-8 text-lg text-gray-900 sm:text-xl">
-            Somos una agencia enfocada en el desarrollo de sitios modernos, eficientes y personalizados. Ayudamos a marcas y startups a destacar en la era digital.
+            Somos un equipo apasionado, especializado en crear sitios web y aplicaciones a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio. Nos enfocamos en la excelencia técnica, incluyendo la optimización de la arquitectura web, la mejora de la velocidad de carga, la implementación de Schema Markup y auditorías de rastreo e indexación, garantizando la máxima visibilidad orgánica. Trabajamos de principio a fin para asegurar que tu presencia digital sea excepcional y rentable.
           </p>
         </motion.div>
         <motion.div
@@ -58,18 +55,12 @@ export default function Nosotros() {
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold text-emerald-400 sm:grid-cols-2 md:flex lg:gap-x-10">
-            {links.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-emerald-300 transition">
-                {link.name} <span aria-hidden="true">&rarr;</span>
-              </a>
-            ))}
-          </div>
+          {/* Se eliminó la sección de enlaces */}
           <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.name} className="flex flex-col-reverse gap-1">
-                <dt className="text-base text-gray-400">{stat.name}</dt>
-                <dd className="text-4xl font-bold tracking-tight text-black">{stat.value}</dd>
+                <dt className="text-base text-gray-500">{stat.name}</dt>
+                <dd className="text-4xl font-bold tracking-tight text-gray-900">{stat.value}</dd>
               </div>
             ))}
           </dl>

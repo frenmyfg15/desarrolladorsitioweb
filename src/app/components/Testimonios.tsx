@@ -4,27 +4,60 @@ import { Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
+// Función utilitaria para calcular "hace cuanto tiempo"
+const timeAgo = (dateString: string): string => {
+  const now = new Date();
+  const pastDate = new Date(dateString);
+  const diffTime = Math.abs(now.getTime() - pastDate.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Diferencia en días
+
+  if (diffDays === 0) {
+    return 'Hoy';
+  } else if (diffDays === 1) {
+    return 'Ayer';
+  } else if (diffDays < 7) {
+    return `Hace ${diffDays} días`;
+  } else if (diffDays < 30) {
+    const weeks = Math.floor(diffDays / 7);
+    return `Hace ${weeks} semana${weeks > 1 ? 's' : ''}`;
+  } else if (diffDays < 365) {
+    const months = Math.floor(diffDays / 30); // Aproximado
+    return `Hace ${months} mes${months > 1 ? 'es' : ''}`;
+  } else {
+    const years = Math.floor(diffDays / 365);
+    return `Hace ${years} año${years > 1 ? 's' : ''}`;
+  }
+}
+
 const testimonials = [
   {
     name: 'Carlos Méndez',
-    date: 'Hace 1 semana',
+    // Usamos el formato 'YYYY-MM-DD' para facilitar la creación de objetos Date
+    date: '2025-07-09', // Hace aproximadamente 1 semana desde hoy (16/07/2025)
     rating: 5,
     content:
       'Excelente servicio. La landing quedó increíble y el tiempo de entrega fue más rápido de lo esperado. Muy recomendable.',
   },
   {
     name: 'Lucía Fernández',
-    date: 'Hace 3 días',
+    date: '2025-07-13', // Hace aproximadamente 3 días
     rating: 5,
     content:
       'Muy profesionales, entendieron justo lo que necesitábamos para nuestra página corporativa. Comunicación clara y efectiva.',
   },
   {
     name: 'Juan Ríos',
-    date: 'Hace 2 semanas',
+    date: '2025-07-02', // Hace aproximadamente 2 semanas
     rating: 4,
     content:
       'Buen trabajo y diseño moderno. Solo mejoraría un poco el tiempo de respuesta en soporte, pero en general excelente.',
+  },
+  {
+    name: 'Sofía Giménez',
+    date: '2025-05-20', // Ejemplo de un testimonio más antiguo
+    rating: 5,
+    content:
+      'Diseño impecable y funcionalidad perfecta. Mi tienda online superó todas mis expectativas. ¡Grandes profesionales!',
   },
 ]
 
@@ -52,7 +85,7 @@ export default function Testimonios() {
   }, [])
 
   return (
-    <section className="bg-[#F0FDF4] py-24 sm:py-32 px-6 shadow-md" ref={sectionRef}>
+    <section className=" py-24 sm:py-32 px-6 shadow-md" ref={sectionRef}>
       <div className="mx-auto max-w-7xl">
         <motion.h2
           className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
@@ -79,7 +112,8 @@ export default function Testimonios() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-gray-800">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.date}</p>
+                  {/* Aquí llamamos a la nueva función timeAgo */}
+                  <p className="text-xs text-gray-500">{timeAgo(t.date)}</p>
                 </div>
               </div>
               <div className="flex items-center mb-2">

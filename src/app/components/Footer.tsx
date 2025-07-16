@@ -3,12 +3,12 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-200 pt-16 pb-8 px-6 sm:px-10 sticky top-0">
+    <footer className="bg-emerald-900 text-gray-200 pt-16 pb-8 px-6 sm:px-10 sticky top-0">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Logo / Marca */}
         <div>
           <h2 className="text-2xl font-bold text-emerald-400">NovaForge</h2>
-          <p className="mt-4 text-sm text-gray-400">
+          <p className="mt-4 text-sm text-white">
             Desarrollo web moderno y eficiente para empresas que quieren destacar.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="mt-12 border-t border-gray-700 pt-6 text-sm text-center text-gray-500">
+      <div className="mt-12 border-t border-white pt-6 text-sm text-center text-white">
         © {new Date().getFullYear()} NovaForge. Todos los derechos reservados.
       </div>
     </footer>

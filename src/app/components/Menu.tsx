@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { AppWindow, Handshake, User, Send, Star, AlignCenter, X } from 'lucide-react'
+import { AppWindow, Wrench, Handshake, User, Send, Star, AlignCenter, X } from 'lucide-react'
 
 export default function Menu() {
     const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Menu() {
     return (
         <section className={`flex justify-between px-6 py-4 fixed top-0 w-full items-center z-40 ${open ? '' : 'backdrop-blur-2xl'}  bg-white/5`}>
             <Link href={'/'} className="flex items-center gap-3">
-                <Image src="/logo.png" width={40} height={40} alt="Logo de la página" />
+                <Image src="/logo.png" width={50} height={50} alt="Logo de la página" />
                 <span className="text-lg font-bold text-[#334155] tracking-tight">NovaForge</span>
             </Link>
 
@@ -28,6 +28,9 @@ export default function Menu() {
                 <Link href="/#servicios">
                     <span className="p-2 rounded-xl text-sm font-medium text-[#334155] hover:bg-emerald-100 transition-colors">SERVICIOS</span>
                 </Link>
+                <Link href="/#planes">
+                    <span className="p-2 rounded-xl text-sm font-medium text-[#334155] hover:bg-emerald-100 transition-colors">PLANES</span>
+                </Link>
                 <Link href="/#enfoque">
                     <span className="p-2 rounded-xl text-sm font-medium text-[#334155] hover:bg-emerald-100 transition-colors">ENFOQUE</span>
                 </Link>
@@ -35,7 +38,7 @@ export default function Menu() {
                     <span className="p-2 rounded-xl text-sm font-medium text-[#334155] hover:bg-emerald-100 transition-colors">TESTIMONIOS</span>
                 </Link>
                 <Link href="/#contacto">
-                    <span className="p-2 rounded-xl text-sm font-semibold bg-gradient-to-br from-emerald-400 to-emerald-300 text-gray-900 shadow-md hover:scale-105 transition-transform">CONTACTAR</span>
+                    <span className="p-2 rounded-xl text-sm font-medium bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-md hover:scale-105 transition-transform">CONTACTAR</span>
                 </Link>
             </nav>
 
@@ -65,11 +68,12 @@ export default function Menu() {
                     if (!open) setShouldRender(false);
                 }}
             >
-                <Link onClick={() => setOpen(ref => !ref)} href={'/#nosotros'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><User color='#009975' /> NOSOTROS</span></Link>
-                <Link onClick={() => setOpen(ref => !ref)} href={'/#servicios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Handshake color='#009975' /> SERVICIOS</span></Link>
-                <Link onClick={() => setOpen(ref => !ref)} href={'/#enfoque'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><AppWindow color='#009975' /> ENFOQUE</span></Link>
-                <Link onClick={() => setOpen(ref => !ref)} href={'/#testimonios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Star color='#009975' /> TESTIMONIOS</span></Link>
-                <Link onClick={() => setOpen(ref => !ref)} href={'/#contacto'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-emerald-100 transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Send color='#009975' /> CONTACTAR</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#nosotros'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><User color='#009975' /> NOSOTROS</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#servicios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Wrench color='#009975' /> SERVICIOS</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#planes'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Handshake color='#009975' /> PLANES</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#enfoque'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><AppWindow color='#009975' /> ENFOQUE</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#testimonios'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Star color='#009975' /> TESTIMONIOS</span></Link>
+                <Link onClick={() => setOpen(ref => !ref)} href={'/#contacto'} className='border-b-1 border-gray-200 py-3 ml-3 mr-3 hover:scale-105 hover:bg-white rounded-md transition'><span className='text-sm font-medium text-[#334155] flex gap-3 items-center'><Send color='#009975' /> CONTACTAR</span></Link>
             </div>)}
         </section>
     )

@@ -48,9 +48,9 @@ export default function Hero() {
             Impulsa tu presencia digital
           </h1>
           <h2 className="text-lg md:text-xl text-[#475569] mb-8">
-            Desarrollo web moderno, rápido y personalizado para empresas creativas.
+            Desarrollo web y app moderno, rápido y personalizado para empresas creativas.
           </h2>
-          <Link href={'/#contacto'} className="px-6 py-3 text-sm font-semibold rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-300 text-gray-900 shadow-md hover:scale-105 transition-transform">
+          <Link href={'/#contacto'} className="px-6 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-md hover:scale-105 transition-transform">
             Comienza ahora
           </Link>
         </div>

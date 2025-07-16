@@ -141,7 +141,9 @@ export default function Contacto({ modo = 'oscuro' }: ContactoProps) {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#22FF00] to-[#009966] text-black font-bold py-3 rounded-xl hover:bg-[#1ed300] transition flex justify-center items-center gap-3 cursor-pointer hover:scale-110"
+              className={`${isWhite ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-white' : 'bg-gradient-to-r from-[#22FF00] to-[#009966] text-black '} w-full  
+              font-bold py-3 rounded-xl transition flex justify-center 
+              items-center gap-3 cursor-pointer hover:scale-110`}
             >
               <FaWhatsapp size={24} />
               Contactar por WhatsApp
