@@ -9,7 +9,7 @@ const tiers = [
     name: 'Landing Page',
     id: 'tier-landing',
     href: '#contacto',
-    priceMonthly: '$99',
+    priceMonthly: '99', // Solo el número, el símbolo se añade dinámicamente
     description: 'Una página moderna, rápida y optimizada para conversiones.',
     features: [
       'Diseño responsive',
@@ -23,7 +23,7 @@ const tiers = [
     name: 'Corporativa',
     id: 'tier-corporativa',
     href: '#contacto',
-    priceMonthly: '$249',
+    priceMonthly: '249',
     description: 'Sitio completo con +5 secciones para representar tu empresa.',
     features: [
       '5+ páginas internas',
@@ -38,7 +38,7 @@ const tiers = [
     name: 'Avanzada',
     id: 'tier-avanzada',
     href: '#contacto',
-    priceMonthly: '$599',
+    priceMonthly: '599',
     description: 'Aplicación web con panel, login y funcionalidades dinámicas.',
     features: [
       'Autenticación de usuarios',
@@ -51,15 +51,27 @@ const tiers = [
   },
 ]
 
-function classNames(...classes: (string | false | null | undefined)[]): string {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef(null)
+  const [currencySymbol, setCurrencySymbol] = useState('$')
+  const [currencyCode, setCurrencyCode] = useState('USD')
 
   useEffect(() => {
+    // Determina la moneda basada en el dominio
+    if (typeof window !== 'undefined' && window.location.hostname.endsWith('.es')) {
+      setCurrencySymbol('€')
+      setCurrencyCode('EUR')
+    } else {
+      setCurrencySymbol('$')
+      setCurrencyCode('USD')
+    }
+
+    // Observador para las animaciones
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) { setIsVisible(true) } else {
@@ -80,7 +92,6 @@ export default function Services() {
   return (
     <div ref={sectionRef} className="relative isolate px-6 py-24 sm:py-32 lg:px-8 shadow-md bg-white">
 
-      {/* Fondo decorativo */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -125,14 +136,13 @@ export default function Services() {
           >
             <h3 className="text-lg font-semibold">{tier.name}</h3>
             <p className="mt-4 flex items-baseline gap-x-1">
-              {/* Aquí se añade el texto "desde" con un tamaño de fuente pequeño */}
               <span className={classNames(tier.featured ? 'text-emerald-100' : 'text-gray-500', 'text-sm font-normal')}>
                 desde
               </span>
               <span className={classNames(tier.featured ? 'text-white' : 'text-gray-900', 'text-4xl font-bold')}>
-                {tier.priceMonthly}
+                {currencySymbol}{tier.priceMonthly}
               </span>
-              <span className={classNames(tier.featured ? 'text-emerald-100' : 'text-gray-500')}>USD</span>
+              <span className={classNames(tier.featured ? 'text-emerald-100' : 'text-gray-500')}>{currencyCode}</span>
             </p>
             <p className={classNames(tier.featured ? 'text-emerald-100' : 'text-gray-600', 'mt-4 text-sm')}>
               {tier.description}
