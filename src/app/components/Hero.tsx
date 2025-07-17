@@ -47,7 +47,7 @@ export default function Hero() {
           <h2 className="text-lg md:text-xl text-[#475569] font-medium leading-snug">
             Creamos experiencias digitales modernas, desde sitios web estratégicos hasta aplicaciones móviles que conectan y convierten.
           </h2>
-          <p className="text-base text-gray-600 leading-relaxed">
+          <p className="text-base text-gray-600 leading-relaxed hidden md:block">
             En <strong>Nova Forge</strong> potenciamos marcas mediante soluciones a medida: diseño elegante, rendimiento técnico, posicionamiento SEO y escalabilidad. Ya seas una startup o una empresa consolidada, te ayudamos a destacar con tecnología y propósito.
           </p>
           <Link
