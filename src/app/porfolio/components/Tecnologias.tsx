@@ -71,7 +71,7 @@ export default function Tecnologias() {
       id="about"
       className="relative min-h-screen px-6 py-20 bg-fixed bg-cover bg-center overflow-hidden flex flex-col justify-center"
       style={{
-        backgroundImage: `url('/fondo.webp'), url('/fondo2.webp')`,
+        backgroundImage: `url('/fondoPorfolio.webp'), url('/fondo2.webp')`,
       }}
     >
       {/* Degradados para ocultar bordes */}

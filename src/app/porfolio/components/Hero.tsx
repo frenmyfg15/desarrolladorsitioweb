@@ -35,7 +35,7 @@ export default function Hero() {
     <section
       className="flex items-center justify-center h-screen px-10 py-10 flex-wrap gap-x-20 bg-transparent relative overflow-hidden pt-10 bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: `url('/fondo.webp'), url('/fondo2.webp')`
+        backgroundImage: `url('/fondoPorfolio.webp'), url('/fondo2.webp')`
       }}
     >
 

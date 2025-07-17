@@ -17,7 +17,7 @@ export default function Menu() {
     return (
         <section className={`flex justify-between px-6 py-4 fixed top-0 w-full items-center z-40 ${open ? '' : 'backdrop-blur-2xl'}  bg-white/5`}>
             <Link href={'/'} className="flex items-center gap-3">
-                <Image src="/logo.png" width={50} height={50} alt="Logo de la página" />
+                <Image src="/logo.webp" width={50} height={50} alt="Logo de la página" />
                 <span className="text-lg font-bold text-[#334155] tracking-tight">NovaForge</span>
             </Link>
 

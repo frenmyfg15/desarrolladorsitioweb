@@ -9,7 +9,7 @@ export default function Footer() {
         <footer
             className="relative px-6 py-16 bg-fixed bg-cover bg-center overflow-hidden"
             style={{
-                backgroundImage: `url('/fondo.webp'), url('/fondo2.webp')`,
+                backgroundImage: `url('/fondoPorfolio.webp'), url('/fondo2.webp')`,
             }}
         >
 

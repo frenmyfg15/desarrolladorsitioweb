@@ -89,7 +89,7 @@ export default function Enfoque() {
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             alt="Product screenshot"
-            src="/enfoque/fondo.png"
+            src="/enfoque/fondo.webp"
             width={2432}
             height={1442}
             className="w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0"

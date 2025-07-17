@@ -62,7 +62,7 @@ export default function Hero() {
         {/* Imagen lateral */}
         <div ref={derecha} className="flex justify-center">
           <Image
-            src="/fondo.png"
+            src="/fondo.webp"
             width={500}
             height={500}
             alt="Ilustración de desarrollo web y aplicaciones"
