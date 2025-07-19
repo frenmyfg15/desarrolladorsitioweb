@@ -32,7 +32,7 @@ export default function PoliticaCookies() {
 
           <h2 className="text-xl font-semibold">¿Tienes dudas?</h2>
           <p>
-            Si tienes preguntas sobre nuestra política de cookies o cómo protegemos tu información, puedes contactarnos a través de nuestro correo: <strong>info@NovaForge.com</strong>
+            Si tienes preguntas sobre nuestra política de cookies o cómo protegemos tu información, puedes contactarnos a través de nuestro correo: <strong>novaforgeoficial@gmail.com</strong>
           </p>
         </section>
       </main>
