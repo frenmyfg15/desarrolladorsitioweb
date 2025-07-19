@@ -41,7 +41,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Redes sociales */}
+        {/* Redes sociales 
         <div>
           <h3 className="text-lg font-semibold mb-4 text-white">Síguenos</h3>
           <div className="flex space-x-4">
@@ -59,6 +59,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+        */}
       </div>
 
       {/* Divider */}

@@ -10,7 +10,7 @@ export default function PoliticaEmpresa() {
     <>
       <Menu />
 
-      <main className="relative isolate mx-auto max-w-5xl px-6 py-12 text-gray-800 h-screen">
+      <main className="relative isolate mx-auto max-w-5xl px-6 py-12 text-gray-800">
         <div className="rounded-3xl border border-white/20 bg-white/60 backdrop-blur-md shadow-xl p-8 md:p-12 space-y-8 transition-all duration-500">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900">Política de la Empresa</h1>
 
@@ -55,7 +55,7 @@ export default function PoliticaEmpresa() {
             </div>
 
             <p>
-              ¿Tienes preguntas o comentarios? Escríbenos a: <strong>info@NovaForge.com</strong>
+              ¿Tienes preguntas o comentarios? Escríbenos a: <strong>novaforgeoficial@gmail.com</strong>
             </p>
           </section>
         </div>

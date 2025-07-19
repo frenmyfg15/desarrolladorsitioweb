@@ -8,7 +8,7 @@ export default function PoliticaPrivacidad() {
   return (
     <>
       <Menu />
-      <main className="relative isolate mx-auto max-w-5xl px-6 py-12 text-gray-800 h-screen">
+      <main className="relative isolate mx-auto max-w-5xl px-6 py-12 text-gray-800">
         <div className="rounded-3xl border border-white/20 bg-white/60 backdrop-blur-md shadow-xl p-8 md:p-12 space-y-8 transition-all duration-500">
           <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-900">Política de Privacidad</h1>
 
@@ -21,9 +21,9 @@ export default function PoliticaPrivacidad() {
               <h2 className="text-xl font-semibold text-emerald-600">1. Responsable del tratamiento</h2>
               <p>
                 <strong>Nombre comercial:</strong> NovaForge<br />
-                <strong>Teléfono:</strong> 617 547 481<br />
-                <strong>Correo electrónico:</strong> info@NovaForge.com<br />
-                <strong>Dirección:</strong> Valdemoro, Madrid, España
+                <strong>Teléfono:</strong>+34 604 89 44 72<br />
+                <strong>Correo electrónico:</strong> novaforgeoficial@gmail.com<br />
+                <strong>Dirección:</strong> Madrid, España
               </p>
             </div>
 
