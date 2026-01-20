@@ -143,7 +143,6 @@ export default function Hero() {
                         direction="up"
                         duration={3}
                         className="font-bold text-5xl text-text-primary text-center"
-                        startCounting
                     />
                     <p className="text-xl text-text-secondary text-center">
                         Proyectos realizados
@@ -152,21 +151,22 @@ export default function Hero() {
 
                 {/* ITEM 2 */}
                 <div className="flex flex-col gap-3 justify-center items-center">
-                    <CountUp
-                        from={0}
-                        to={100}
-                        direction="up"
-                        duration={3}
-                        suffix="%"
-                        className="font-bold text-5xl text-text-primary text-center"
-                        startCounting
-                    />
+                    <div className="flex items-baseline gap-1">
+                        <CountUp
+                            from={0}
+                            to={100}
+                            direction="up"
+                            duration={3}
+                            className="font-bold text-5xl text-text-primary text-center"
+                        />
+                        <p className="font-bold text-5xl text-text-primary">%</p>
+                    </div>
                     <p className="text-xl text-text-secondary text-center">
                         Clientes satisfechos
                     </p>
                 </div>
 
-                {/* ITEM 3 → SOLO DESKTOP */}
+                {/* ITEM 3 */}
                 <div className="flex flex-col gap-3 justify-center items-center max-lg:hidden">
                     <CountUp
                         from={0}
@@ -174,13 +174,13 @@ export default function Hero() {
                         direction="up"
                         duration={3}
                         className="font-bold text-5xl text-text-primary text-center"
-                        startCounting
                     />
                     <p className="text-xl text-text-secondary text-center">
                         Años de trayectoria
                     </p>
                 </div>
             </div>
+
 
 
 
