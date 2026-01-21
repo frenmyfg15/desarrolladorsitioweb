@@ -18,7 +18,7 @@ export default function Hero() {
             <div className="flex justify-between w-full flex-wrap-reverse  max-[1250]:justify-center
             max-[1010]:gap-10
             ">
-                <div className='flex flex-col items-start justify-between z-100
+                <div className='flex flex-col items-start justify-between z-90
                 max-[1250]:gap-7
 
                 max-[1000]:gap-9
@@ -120,7 +120,7 @@ export default function Hero() {
                 <Image
                     src={hero}
                     alt='Image Hero'
-                    className='w-4xs z-100
+                    className='w-4xs z-90
                     max-[1250]:w-[400px] 
                     max-[1250]:h-[400px] 
                     
@@ -134,7 +134,7 @@ export default function Hero() {
                 />
 
             </div>
-            <div className="flex justify-between items-center w-full z-100 max-lg:justify-center max-lg:gap-10">
+            <div className="flex justify-between items-center w-full z-90 max-lg:justify-center max-lg:gap-10">
                 {/* ITEM 1 */}
                 <div className="flex flex-col gap-3 justify-center items-center">
                     <CountUp
@@ -144,7 +144,7 @@ export default function Hero() {
                         duration={3}
                         className="font-bold text-5xl text-text-primary text-center"
                     />
-                    <p className="text-xl text-text-secondary text-center">
+                    <p className="text-xl text-text-secondary text-center max-[650px]:text-[14px] max-[485px]:text-[12px]">
                         Proyectos realizados
                     </p>
                 </div>
@@ -161,7 +161,7 @@ export default function Hero() {
                         />
                         <p className="font-bold text-5xl text-text-primary">%</p>
                     </div>
-                    <p className="text-xl text-text-secondary text-center">
+                    <p className="text-xl text-text-secondary text-center max-[650px]:text-[14px] max-[485px]:text-[12px]">
                         Clientes satisfechos
                     </p>
                 </div>

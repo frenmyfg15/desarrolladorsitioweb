@@ -9,7 +9,7 @@ export default function Header() {
     const [showMenu, setShowMenu] = useState(false);
 
     return (
-        <header className='fixed top-0 left-0 w-full'>
+        <header className='fixed top-0 left-0 w-full z-100'>
             <div className=' flex justify-between p-6 items-center'>
                 <div className='flex gap-2 items-center z-100'>
                     <Image
