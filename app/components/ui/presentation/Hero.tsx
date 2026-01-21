@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { ArrowDown, ArrowUpRight, Star } from 'lucide-react'
 import brand from '@/app/assets/novaforge/brand.png'
 import CountUp from '../common/CountUp'
+import SplitText from '../common/SplitText'
 
 
 export default function Hero() {
@@ -38,23 +39,32 @@ export default function Hero() {
                             Empresa de confianza
                         </p>
                     </div>
-
-                    <h2
+                    <SplitText
+                        text={
+                            <>
+                                Impulsa tu presencia digital{" "}
+                                <span className="text-primary">con impacto</span>
+                            </>
+                        }
                         className="
-                        text-text-primary text-6xl font-bold text-center
-                        max-w-[743px]
-                        leading-[1.1]
+    text-text-primary text-6xl font-bold text-center
+    max-w-[743px]
+    leading-[1.1]
 
-                        max-[1250px]:text-4xl
-                        max-[1250px]:leading-[1.15]
-                        max-[1250px]:max-w-[550px]
+    max-[1250px]:text-4xl
+    max-[1250px]:leading-[1.15]
+    max-[1250px]:max-w-[550px]
 
-                        max-[560px]:text-[26px]
-                        max-[500px]:max-w-[320px]
-                        "
-                    >
-                        Impulsa tu presencia digital <span className="text-primary">con impacto</span>
-                    </h2>
+    max-[560px]:text-[26px]
+    max-[500px]:max-w-[320px]
+  "
+                        delay={50}
+                        duration={1.25}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                    />
 
                     <h3
                         className="
@@ -127,8 +137,8 @@ export default function Hero() {
                     max-[1110]:w-[300px] 
                     max-[1110]:h-[300px]
 
-                    max-[445]:w-[250px] 
-                    max-[445]:h-[250px] 
+                    max-[445]:w-[210px] 
+                    max-[445]:h-[210px] 
                     
                     object-contain'
                 />
@@ -180,10 +190,6 @@ export default function Hero() {
                     </p>
                 </div>
             </div>
-
-
-
-
         </section>
     )
 }

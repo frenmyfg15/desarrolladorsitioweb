@@ -1,12 +1,35 @@
 import logo from '@/app/assets/novaforge/logo.png'
 import Image from 'next/image'
-import { Code2, LayoutGrid, LogIn, Mail, MessageSquareQuote, ShieldCheck, Users, X } from "lucide-react";
-import { useState } from 'react';
+import { Code2, LayoutGrid, LogIn, Mail, MessageSquareQuote, ShieldCheck, Target, Users, X } from "lucide-react";
+import { useEffect, useRef, useState } from 'react';
 
 
 export default function Header() {
 
     const [showMenu, setShowMenu] = useState(false);
+
+    //Obtener referencia del elemento
+    const boxRef = useRef<HTMLDivElement>(null);
+
+
+    // Montamos la logica de clic fuera
+    useEffect(() => {
+        const handleClick = (event: MouseEvent) => {
+            if (
+                boxRef.current &&
+                showMenu &&
+                !boxRef.current.contains(event.target as Node)
+            ) {
+                setShowMenu(false);
+            }
+        };
+
+        document.addEventListener("click", handleClick);
+
+        return () => document.removeEventListener("click", handleClick);
+    }, [showMenu]);
+
+
 
     return (
         <header className='fixed top-0 left-0 w-full z-100'>
@@ -64,8 +87,10 @@ export default function Header() {
                             transform-gpu transition-transform duration-300 ease-out
                             ${showMenu ? "translate-x-0" : "translate-x-[-100%]"}
                             `}
+
+                        ref={boxRef}
                     >
-                        <nav className='flex flex-col gap-10 text-text-secondary text-[16px] font-light'>
+                        <nav className='flex flex-col gap-3 text-text-secondary text-[16px] font-light'>
                             <a href="#servicios" className={`flex items-center gap-4 px-3 py-2 text-primary font-medium`}>
                                 <LayoutGrid size={20} />
                                 Servicios
