@@ -1,30 +1,47 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import Presentation from './presentation/page';
 
-type User = 'ADMIN' | 'USER' | ''
+import AdminDashboard from './(dashboards)/AdminDashboard';
+import UserDashboard from './(dashboards)/UserDashboard';
 
-export default function page() {
+import { useSessionStore } from './store/session.store';
+import LoadingScreen from '@/components/ui/LoadingScreen';
+import logo from '@/app/assets/novaforge/logo.png';
 
-  const [user] = useState<User>('');
+export default function Page() {
+  // const router = useRouter();
+  // const { user, hydrate, isLoading } = useSessionStore();
 
-  const Show = () => {
-    switch (user) {
-      case '':
-        return <Presentation />
-      case 'ADMIN':
-        return <div></div>
-      case 'USER':
-        return <div></div>
-    }
-  }
-  return (
-    <div>
-      <Show />
-    </div>
-  )
+  // useEffect(() => {
+  //   hydrate();
+  // }, [hydrate]);
+
+  // // 🔁 redirect automático para SUPER_ADMIN
+  // useEffect(() => {
+  //   if (user?.rolGlobal === 'SUPER_ADMIN') {
+  //     router.replace('/superadmin');
+  //   }
+  // }, [user, router]);
+
+  // if (isLoading) {
+  //   return <LoadingScreen logoSrc={logo} label="Cargando tu sesión…" />;
+  // }
+
+  // if (!user) {
+  //   return <Presentation />;
+  // }
+
+  // switch (user.rolGlobal) {
+  //   case 'ADMIN':
+  //     return <AdminDashboard />;
+
+  //   case 'USUARIO':
+  //     return <UserDashboard />;
+  //   default:
+  return <Presentation />;
+  // }
 }
-
-
-

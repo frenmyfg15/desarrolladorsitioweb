@@ -1,11 +1,10 @@
 import Image from "next/image";
 import gradiants from "@/app/assets/gradiants/backgroundGradiant.svg";
-import RippleGrid from "./ui/background/DotGrid";
 import DotGrid from "./ui/background/DotGrid";
 
 export default function BackgroundGradiant() {
     return (
-        <>
+        <div className="z-0">
             <Image
                 src={gradiants}
                 alt="Background gradiant image"
@@ -39,6 +38,6 @@ export default function BackgroundGradiant() {
                 />
             </div>
 
-        </>
+        </div>
     );
 }
