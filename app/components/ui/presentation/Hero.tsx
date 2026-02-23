@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUpRight, Star } from 'lucide-react'
 import brand from '@/app/assets/novaforge/brand.png'
 import CountUp from '../common/CountUp'
 import SplitText from '../common/SplitText'
+import Link from 'next/link'
 
 
 export default function Hero() {
@@ -83,7 +84,8 @@ export default function Hero() {
                     </h3>
 
                     <div className="flex justify-center gap-8 items-center w-full max-[500px]:gap-4">
-                        <button
+                        <Link
+                            href={'#servicios'}
                             className="
       cursor-pointer
       py-3 px-5
@@ -100,9 +102,10 @@ export default function Hero() {
     "
                         >
                             Explorar <ArrowDown className="max-[500px]:w-4 max-[500px]:h-4" />
-                        </button>
+                        </Link>
 
-                        <button
+                        <Link
+                            href={'#contacto'}
                             className="
       cursor-pointer
       py-3 px-5
@@ -120,7 +123,7 @@ export default function Hero() {
     "
                         >
                             Presupuestar <ArrowUpRight className="max-[500px]:w-4 max-[500px]:h-4" />
-                        </button>
+                        </Link>
                     </div>
 
 
