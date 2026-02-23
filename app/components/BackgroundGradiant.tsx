@@ -4,27 +4,21 @@ import DotGrid from "./ui/background/DotGrid";
 
 export default function BackgroundGradiant() {
     return (
-        <div className="z-0">
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
             <Image
                 src={gradiants}
-                alt="Background gradiant image"
-                className="backgroundAnimationTop h-[700px] w-[700px] pointer-events-none select-none"
+                alt=""
+                aria-hidden="true"
+                className="backgroundAnimationTop absolute h-[700px] w-[700px] pointer-events-none select-none"
                 priority
             />
             <Image
                 src={gradiants}
-                alt="Background gradiant image"
-                className="backgroundAnimation h-[700px] w-[700px] pointer-events-none select-none"
+                alt=""
+                aria-hidden="true"
+                className="backgroundAnimation absolute h-[700px] w-[700px] pointer-events-none select-none"
             />
-            <div
-                className="
-    fixed
-    top-1/2 left-1/2
-    -translate-x-1/2 -translate-y-1/2
-    h-screen w-full 
-    z-10
-  "
-            >
+            <div className="absolute inset-0 z-10 pointer-events-auto">
                 <DotGrid
                     dotSize={2}
                     gap={15}
@@ -37,7 +31,6 @@ export default function BackgroundGradiant() {
                     returnDuration={1.5}
                 />
             </div>
-
         </div>
     );
 }
