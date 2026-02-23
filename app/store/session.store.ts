@@ -2,10 +2,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 import { authApi } from "../api/auth/auth.api";
-import { empresaApi } from "../api/empresa/empresa.api";
+import { Empresa, empresaApi } from "../api/empresa/empresa.api";
 
 import type { PublicUser } from "../api/auth/auth.types";
-import type { Empresa } from "../api/empresa/empresa.types";
 
 type SessionState = {
     user: PublicUser | null;
