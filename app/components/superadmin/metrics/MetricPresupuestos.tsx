@@ -1,9 +1,7 @@
 "use client";
 
-import { presupuestoApi } from "@/app/api/presupuesto/presupuesto.api";
-import { Presupuesto } from "@/app/api/presupuesto/presupuesto.types";
-import { proyectoApi } from "@/app/api/proyectos/proyecto.api";
-import { Proyecto } from "@/app/api/proyectos/proyecto.types";
+import { Presupuesto, presupuestoApi } from "@/app/api/presupuesto/presupuesto.api";
+import { Proyecto, proyectoApi } from "@/app/api/proyectos/proyecto.api";
 import { useEffect, useMemo, useState } from "react";
 import {
     Area,
@@ -607,8 +605,8 @@ export function MetricPresupuestos() {
                             </div>
                             <div
                                 className={`rounded-full px-4 py-1.5 text-xs font-bold ${computed.latest.presupuesto.aceptado
-                                        ? "bg-cyan-500/20 text-cyan-400"
-                                        : "bg-amber-500/20 text-amber-400"
+                                    ? "bg-cyan-500/20 text-cyan-400"
+                                    : "bg-amber-500/20 text-amber-400"
                                     }`}
                             >
                                 {computed.latest.presupuesto.aceptado ? "ACEPTADO" : "PENDIENTE"}

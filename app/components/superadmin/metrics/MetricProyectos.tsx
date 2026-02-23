@@ -1,7 +1,6 @@
 "use client";
 
-import { proyectoApi } from "@/app/api/proyectos/proyecto.api";
-import { Proyecto } from "@/app/api/proyectos/proyecto.types";
+import { Proyecto, proyectoApi } from "@/app/api/proyectos/proyecto.api";
 import { useEffect, useMemo, useState } from "react";
 import {
     Bar,
