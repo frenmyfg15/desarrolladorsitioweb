@@ -3,61 +3,63 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/auth.store";
+import Image from "next/image";
+import logo from '@/app/assets/novaforge/logo.png'
 
 export default function LoginPage() {
-    const router = useRouter();
-    const user = useAuthStore((s) => s.user);
-    const login = useAuthStore((s) => s.login);
+  const router = useRouter();
+  const user = useAuthStore((s) => s.user);
+  const login = useAuthStore((s) => s.login);
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [rememberEmail, setRememberEmail] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberEmail, setRememberEmail] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-    // Cargar email guardado al montar
-    useEffect(() => {
-        const saved = localStorage.getItem("rememberedEmail");
-        if (saved) {
-            setEmail(saved);
-            setRememberEmail(true);
-        }
-    }, []);
-
-    // Redirigir si ya hay sesión
-    useEffect(() => {
-        if (!user) return;
-        if (user.role === "ADMIN") router.replace("/admin");
-        else router.replace("/");
-    }, [user, router]);
-
-    async function onSubmit(e: React.FormEvent) {
-        e.preventDefault();
-        setError(null);
-        setLoading(true);
-
-        try {
-            if (rememberEmail) localStorage.setItem("rememberedEmail", email);
-            else localStorage.removeItem("rememberedEmail");
-
-            const loggedUser = await login(email, password);
-
-            if (loggedUser.role === "ADMIN") router.replace("/admin");
-            else router.replace("/");
-        } catch (err: any) {
-            const msg =
-                err?.response?.data?.message ||
-                err?.message ||
-                "No se pudo iniciar sesión";
-            setError(msg);
-        } finally {
-            setLoading(false);
-        }
+  // Cargar email guardado al montar
+  useEffect(() => {
+    const saved = localStorage.getItem("rememberedEmail");
+    if (saved) {
+      setEmail(saved);
+      setRememberEmail(true);
     }
+  }, []);
 
-    return (
-        <>
-            <style>{`
+  // Redirigir si ya hay sesión
+  useEffect(() => {
+    if (!user) return;
+    if (user.role === "ADMIN") router.replace("/admin");
+    else router.replace("/");
+  }, [user, router]);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      if (rememberEmail) localStorage.setItem("rememberedEmail", email);
+      else localStorage.removeItem("rememberedEmail");
+
+      const loggedUser = await login(email, password);
+
+      if (loggedUser.role === "ADMIN") router.replace("/admin");
+      else router.replace("/");
+    } catch (err: any) {
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "No se pudo iniciar sesión";
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <>
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -320,94 +322,94 @@ export default function LoginPage() {
         }
       `}</style>
 
-            <div className="login-root">
-                {/* Panel izquierdo */}
-                <div className="login-panel">
-                    <img
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop"
-                        alt="Office background"
-                    />
-                    <div className="login-panel-overlay">
-                        <div className="login-brand">
-                            <div className="login-brand-dot" />
-                            <span className="login-brand-name">Nombre App</span>
-                        </div>
-                        <p className="login-panel-quote">
-                            Tu espacio de trabajo,<br />
-                            <strong>organizado y eficiente.</strong>
-                        </p>
-                    </div>
-                </div>
-
-                {/* Panel derecho */}
-                <div className="login-form-section">
-                    <div className="login-form-wrapper">
-                        <div className="login-header">
-                            <h1>Bienvenido de vuelta</h1>
-                            <p>Ingresa tus credenciales para continuar</p>
-                        </div>
-
-                        <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                            <div className="login-fields">
-                                <label className="field-label">
-                                    <span>Correo electrónico</span>
-                                    <input
-                                        className="field-input"
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="tu@email.com"
-                                        autoComplete="email"
-                                        required
-                                    />
-                                </label>
-
-                                <label className="field-label">
-                                    <span>Contraseña</span>
-                                    <input
-                                        className="field-input"
-                                        type="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="••••••••"
-                                        autoComplete="current-password"
-                                        required
-                                    />
-                                </label>
-                            </div>
-
-                            {/* Recordar email */}
-                            <label className="remember-row">
-                                <input
-                                    type="checkbox"
-                                    checked={rememberEmail}
-                                    onChange={(e) => setRememberEmail(e.target.checked)}
-                                />
-                                <span>Recordar mi correo</span>
-                            </label>
-
-                            {error && (
-                                <div className="login-error">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <circle cx="8" cy="8" r="7" stroke="#B91C1C" strokeWidth="1.5" />
-                                        <path d="M8 5v3.5M8 10.5v.5" stroke="#B91C1C" strokeWidth="1.5" strokeLinecap="round" />
-                                    </svg>
-                                    {error}
-                                </div>
-                            )}
-
-                            <button className="login-btn" type="submit" disabled={loading}>
-                                {loading ? "Iniciando sesión..." : "Iniciar sesión"}
-                            </button>
-                        </form>
-
-                        <p className="login-footer">
-                            ¿Olvidaste tu contraseña?{" "}
-                            <a href="/forgot-password">Recupérala aquí</a>
-                        </p>
-                    </div>
-                </div>
+      <div className="login-root">
+        {/* Panel izquierdo */}
+        <div className="login-panel">
+          <img
+            src="https://res.cloudinary.com/dcn4vq1n4/image/upload/v1771865633/rvv7oxkosefaqwp8sxo6.png"
+            alt="Office background"
+          />
+          <div className="login-panel-overlay">
+            <div className="login-brand">
+              <Image src={logo} alt="NovaForge" className="w-[34px] h-[34px] object-contain" />
+              <span className="login-brand-name">NovaForge</span>
             </div>
-        </>
-    );
+            <p className="login-panel-quote">
+              Tu espacio de trabajo,<br />
+              <strong>organizado y eficiente.</strong>
+            </p>
+          </div>
+        </div>
+
+        {/* Panel derecho */}
+        <div className="login-form-section">
+          <div className="login-form-wrapper">
+            <div className="login-header">
+              <h1>Bienvenido de vuelta</h1>
+              <p>Ingresa tus credenciales para continuar</p>
+            </div>
+
+            <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div className="login-fields">
+                <label className="field-label">
+                  <span>Correo electrónico</span>
+                  <input
+                    className="field-input"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="tu@email.com"
+                    autoComplete="email"
+                    required
+                  />
+                </label>
+
+                <label className="field-label">
+                  <span>Contraseña</span>
+                  <input
+                    className="field-input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    autoComplete="current-password"
+                    required
+                  />
+                </label>
+              </div>
+
+              {/* Recordar email */}
+              <label className="remember-row">
+                <input
+                  type="checkbox"
+                  checked={rememberEmail}
+                  onChange={(e) => setRememberEmail(e.target.checked)}
+                />
+                <span>Recordar mi correo</span>
+              </label>
+
+              {error && (
+                <div className="login-error">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="7" stroke="#B91C1C" strokeWidth="1.5" />
+                    <path d="M8 5v3.5M8 10.5v.5" stroke="#B91C1C" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                  {error}
+                </div>
+              )}
+
+              <button className="login-btn" type="submit" disabled={loading}>
+                {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+              </button>
+            </form>
+
+            <p className="login-footer">
+              ¿Olvidaste tu contraseña?{" "}
+              <a href="/forgot-password">Recupérala aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

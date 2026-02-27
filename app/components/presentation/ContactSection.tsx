@@ -207,13 +207,6 @@ export default function ContactSection() {
                         </ul>
                     </div>
 
-                    <div className="rounded-3xl border border-secondary/20 bg-white px-6 py-5 flex flex-col gap-1">
-                        <p className="font-bold text-text-primary text-sm">¿Prefieres el email?</p>
-                        <a href="mailto:contacto@novaforge.dev" className="text-sm text-text-secondary hover:text-primary transition-colors">
-                            contacto@novaforge.dev
-                        </a>
-                    </div>
-
                     {/* Info monedas */}
                     <div className="rounded-3xl border border-secondary/20 bg-white px-6 py-5 flex flex-col gap-3">
                         <p className="font-bold text-text-primary text-sm">Monedas aceptadas</p>

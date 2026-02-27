@@ -60,17 +60,6 @@ export default function Footer() {
                             <span className="text-sm min-w-0 truncate">WhatsApp directo</span>
                         </a>
                     </div>
-
-                    <div className="flex items-center gap-3 mt-2 max-[520px]:justify-center">
-                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                            className="p-3 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition-colors">
-                            <Github className="w-4 h-4 text-white" />
-                        </a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                            className="p-3 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 transition-colors">
-                            <Linkedin className="w-4 h-4 text-white" />
-                        </a>
-                    </div>
                 </div>
             </div>
 

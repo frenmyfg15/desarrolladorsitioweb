@@ -12,6 +12,8 @@ import {
     LogOut,
 } from "lucide-react";
 import { useAuthStore } from "@/app/store/auth.store";
+import Image from "next/image";
+import logo from '@/app/assets/novaforge/logo.png'
 
 const menu = [
     { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
@@ -32,9 +34,9 @@ export function AdminSidebar() {
 
             {/* Logo */}
             <div className="flex items-center gap-2.5 px-2 mb-8">
-                <div className="w-7 h-7 rounded-lg bg-[#36DBBA]" />
+                <Image src={logo} alt="NovaForge" className="w-[34px] h-[34px] object-contain" />
                 <span className="text-base font-semibold text-gray-900 tracking-tight">
-                    Nombre App
+                    NovaForge
                 </span>
             </div>
 
