@@ -31,18 +31,29 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     if (!user || user.role !== "ADMIN") return null;
 
     return (
-        <div className="min-h-screen grid grid-cols-[240px_1fr] bg-gray-50">
+        <div className="flex h-screen w-full bg-gray-50 overflow-hidden">
 
-            {/* Sidebar fijo */}
-            <div className="sticky top-0 h-screen">
+            {/* Sidebar fijo: No se mueve */}
+            <aside className="w-[240px] h-full shrink-0 border-r border-gray-200 bg-white">
                 <AdminSidebar />
-            </div>
+            </aside>
 
-            {/* Contenido principal */}
-            <div className="flex flex-col min-h-screen">
-                <AdminHeader />
-                <main className="flex-1 p-6">
-                    {children}
+            {/* Contenedor derecho: Gestiona su propio scroll */}
+            <div className="flex-1 flex flex-col h-full overflow-y-auto">
+
+                {/* Header fijo: Se queda arriba al hacer scroll en el contenido */}
+                <header className="sticky top-0 z-30 shrink-0 shadow-sm">
+                    <AdminHeader />
+                </header>
+
+                {/* Área de contenido */}
+                <main className="flex-1 p-8">
+                    <div className="max-w-[1600px] mx-auto">
+                        {children}
+
+                        {/* Espacio al final del scroll como pediste */}
+                        <div className="h-20 w-full" />
+                    </div>
                 </main>
             </div>
 

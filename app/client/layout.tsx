@@ -33,8 +33,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     ];
 
     return (
-        <div className="flex min-h-screen bg-[#FFFFFF] font-sans text-[#111827]">
-            <aside className="w-64 border-r border-[#E5E7EB] bg-[#FFFFFF] flex flex-col p-6 gap-8">
+        <div className="flex h-screen bg-[#FFFFFF] font-sans text-[#111827] overflow-hidden">
+            {/* ASIDE: Fijado a la izquierda */}
+            <aside className="w-64 border-r border-[#E5E7EB] bg-[#FFFFFF] flex flex-col p-6 gap-8 shrink-0 h-full">
                 <div className="flex items-center gap-3 px-2">
                     <div className="w-8 h-8 bg-[#36DBBA] rounded-lg flex items-center justify-center shadow-sm">
                         <div className="w-4 h-4 bg-white rounded-sm" />
@@ -75,8 +76,10 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 </button>
             </aside>
 
-            <div className="flex-1 flex flex-col bg-[#F9FAFB]">
-                <header className="h-20 bg-[#FFFFFF] border-b border-[#E5E7EB] flex items-center justify-between px-8">
+            {/* CONTENEDOR DERECHO: Con scroll propio */}
+            <div className="flex-1 flex flex-col bg-[#F9FAFB] overflow-y-auto h-full">
+                {/* HEADER: Pegajoso en la parte superior del contenedor de scroll */}
+                <header className="sticky top-0 z-20 h-20 bg-[#FFFFFF]/80 backdrop-blur-md border-b border-[#E5E7EB] flex items-center justify-between px-8 shrink-0">
                     <div>
                         <h1 className="font-semibold text-lg text-[#111827]">
                             {isHydrated && user ? (
@@ -91,7 +94,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
 
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-3 pr-4 border-r border-[#E5E7EB]">
-                            <div className="text-right">
+                            <div className="text-right hidden sm:block">
                                 <p className="text-sm font-medium text-[#111827]">
                                     {isHydrated ? user?.name : "Cargando..."}
                                 </p>
@@ -114,9 +117,12 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                     </div>
                 </header>
 
-                <main className="p-8 flex-1 overflow-y-auto">
+                {/* MAIN: El contenido que realmente hace scroll */}
+                <main className="p-8 flex-1">
                     <div className="max-w-7xl mx-auto">
                         {children}
+                        {/* Espacio extra al final para el scroll */}
+                        <div className="h-20" />
                     </div>
                 </main>
             </div>
