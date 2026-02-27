@@ -27,10 +27,11 @@ export default function LoginPage() {
   }, []);
 
   // Redirigir si ya hay sesión
+  // Redirigir si ya hay sesión
   useEffect(() => {
     if (!user) return;
     if (user.role === "ADMIN") router.replace("/admin");
-    else router.replace("/");
+    else router.replace("/client");
   }, [user, router]);
 
   async function onSubmit(e: React.FormEvent) {
@@ -45,7 +46,7 @@ export default function LoginPage() {
       const loggedUser = await login(email, password);
 
       if (loggedUser.role === "ADMIN") router.replace("/admin");
-      else router.replace("/");
+      else router.replace("/client");
     } catch (err: any) {
       const msg =
         err?.response?.data?.message ||
