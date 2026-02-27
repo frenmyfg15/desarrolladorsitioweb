@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const local = true
+const local = false
 
 const URL = local ? "http://localhost:4000" : "https://novaforge-serve-production.up.railway.app/"
 
