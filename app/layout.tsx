@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./api/interceptors";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 

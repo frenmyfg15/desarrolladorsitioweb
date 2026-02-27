@@ -5,13 +5,6 @@ import { useRouter } from 'next/navigation';
 
 import Presentation from './presentation/page';
 
-import AdminDashboard from './(dashboards)/AdminDashboard';
-import UserDashboard from './(dashboards)/UserDashboard';
-
-import { useSessionStore } from './store/session.store';
-import LoadingScreen from '@/components/ui/LoadingScreen';
-import logo from '@/app/assets/novaforge/logo.png';
-
 export default function Page() {
   // const router = useRouter();
   // const { user, hydrate, isLoading } = useSessionStore();

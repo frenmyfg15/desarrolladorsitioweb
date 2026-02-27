@@ -92,6 +92,14 @@ body {
   font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
+link {
+  cursor: pointer;
+}
+
 
 .backgroundAnimationTop {
   position: absolute;
