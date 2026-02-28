@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "../store/auth.store";
 import Image from "next/image";
-import logo from '@/app/assets/novaforge/logo.png'
+import logo from '@/app/assets/novaforge/logo.webp'
 
 export default function LoginPage() {
   const router = useRouter();

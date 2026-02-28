@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { useAuthStore } from "@/app/store/auth.store";
 import Image from "next/image";
-import logo from '@/app/assets/novaforge/logo.png'
+import logo from '@/app/assets/novaforge/logo.webp'
 
 const menu = [
     { label: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
