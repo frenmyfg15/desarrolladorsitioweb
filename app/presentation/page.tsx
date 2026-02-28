@@ -1,69 +1,105 @@
-'use client'
-import BackgroundGradiant from '../components/BackgroundGradiant'
-import AboutUsSection from '../components/presentation/AboutUsSection'
-import ContactSection from '../components/presentation/ContactSection'
-import DevelopmentSection from '../components/presentation/DevelopmentSection'
-import FAQSection from '../components/presentation/FAQItem'
-import Footer from '../components/presentation/Footer'
-import ReviewsCarousel from '../components/presentation/Reviewcarousel'
-import SecuritySection from '../components/presentation/SecuritySection'
-import ServicesStickyCarousel from '../components/presentation/ServicesStickyCarousel'
-import Header from '../components/ui/presentation/Header'
-import Hero from '../components/ui/presentation/Hero'
+'use client';
+
+import dynamic from 'next/dynamic';
+
+import BackgroundGradiant from '../components/BackgroundGradiant';
+import Header from '../components/ui/presentation/Header';
+import Hero from '../components/ui/presentation/Hero';
+import Footer from '../components/presentation/Footer';
+
+// ✅ Lazy-load de secciones bajo el fold para reducir JS inicial y mejorar LCP/INP
+const ReviewsCarousel = dynamic(
+    () => import('../components/presentation/Reviewcarousel'),
+    { ssr: false } // suele depender de window/gestos; evita hidratarlo en SSR y reduce trabajo inicial
+);
+
+const ServicesStickyCarousel = dynamic(
+    () => import('../components/presentation/ServicesStickyCarousel'),
+    { ssr: false } // carousels/sticky suelen ser pesados en JS
+);
+
+const DevelopmentSection = dynamic(
+    () => import('../components/presentation/DevelopmentSection'),
+    { ssr: true }
+);
+
+const SecuritySection = dynamic(
+    () => import('../components/presentation/SecuritySection'),
+    { ssr: true }
+);
+
+const AboutUsSection = dynamic(
+    () => import('../components/presentation/AboutUsSection'),
+    { ssr: true }
+);
+
+const FAQSection = dynamic(
+    () => import('../components/presentation/FAQItem'),
+    { ssr: true }
+);
+
+const ContactSection = dynamic(
+    () => import('../components/presentation/ContactSection'),
+    { ssr: true }
+);
 
 export default function Presentation() {
     return (
-        <div className='h-full'>
-
-            {/* Gradiantes */}
+        <div className="min-h-dvh">
+            {/* Gradientes (decorativo) */}
             <BackgroundGradiant />
 
             {/* Header */}
             <Header />
 
-            {/* Hero */}
-            <section id="top">
-                <Hero />
-            </section>
+            {/* Hero (LCP: mantener arriba, sin lazy) */}
+            <main id="top">
+                <section aria-label="Hero">
+                    <Hero />
+                </section>
 
-            {/* Reviews */}
-            <section id="reviews" className="relative z-[999] px-20 py-16 max-[1100px]:px-10 max-[900px]:px-6">
-                <ReviewsCarousel />
-            </section>
+                {/* Reviews */}
+                <section
+                    id="reviews"
+                    aria-label="Reseñas"
+                    className="relative z-[999] px-20 py-16 max-[1100px]:px-10 max-[900px]:px-6"
+                >
+                    <ReviewsCarousel />
+                </section>
 
-            {/* Services */}
-            <section id="servicios">
-                <ServicesStickyCarousel />
-            </section>
+                {/* Services */}
+                <section id="servicios" aria-label="Servicios">
+                    <ServicesStickyCarousel />
+                </section>
 
-            {/* Develop */}
-            <section id="desarrollo">
-                <DevelopmentSection />
-            </section>
+                {/* Develop */}
+                <section id="desarrollo" aria-label="Desarrollo">
+                    <DevelopmentSection />
+                </section>
 
-            {/* Security */}
-            <section id="seguridad">
-                <SecuritySection />
-            </section>
+                {/* Security */}
+                <section id="seguridad" aria-label="Seguridad">
+                    <SecuritySection />
+                </section>
 
-            {/* About */}
-            <section id="nosotros">
-                <AboutUsSection />
-            </section>
+                {/* About */}
+                <section id="nosotros" aria-label="Sobre NovaForge">
+                    <AboutUsSection />
+                </section>
 
-            {/* Faq */}
-            <section id="faq">
-                <FAQSection />
-            </section>
+                {/* FAQ */}
+                <section id="faq" aria-label="Preguntas frecuentes">
+                    <FAQSection />
+                </section>
 
-            {/* Contact */}
-            <section id="contacto">
-                <ContactSection />
-            </section>
+                {/* Contact */}
+                <section id="contacto" aria-label="Contacto">
+                    <ContactSection />
+                </section>
+            </main>
 
             {/* Footer */}
             <Footer />
-
         </div>
-    )
+    );
 }

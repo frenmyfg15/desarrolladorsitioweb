@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useId, useMemo, useState } from 'react';
 import { HelpCircle, Plus, Minus } from 'lucide-react';
 
 function cx(...v: Array<string | false | null | undefined>) {
@@ -10,7 +10,7 @@ function cx(...v: Array<string | false | null | undefined>) {
 function Pill({ children }: { children: React.ReactNode }) {
     return (
         <span className="inline-flex items-center gap-2 px-4 py-2 rounded-3xl border border-secondary/30 bg-secondary/5">
-            <HelpCircle className="w-4 h-4 text-secondary" />
+            <HelpCircle className="w-4 h-4 text-secondary" aria-hidden="true" focusable="false" />
             <span className="text-sm font-semibold text-text-secondary">{children}</span>
         </span>
     );
@@ -25,14 +25,19 @@ function FaqRow({
     item,
     open,
     onToggle,
+    buttonId,
+    panelId,
 }: {
     item: FaqItem;
     open: boolean;
     onToggle: () => void;
+    buttonId: string;
+    panelId: string;
 }) {
     return (
-        <div className="rounded-3xl border border-secondary/20 bg-white shadow-sm overflow-hidden">
+        <article className="rounded-3xl border border-secondary/20 bg-white shadow-sm overflow-hidden">
             <button
+                id={buttonId}
                 type="button"
                 onClick={onToggle}
                 className={cx(
@@ -43,14 +48,25 @@ function FaqRow({
                     'hover:bg-secondary/5'
                 )}
                 aria-expanded={open}
+                aria-controls={panelId}
             >
+                {/* Mantengo <p> para no tocar layout/tipografía */}
                 <p className="font-bold text-text-primary text-base max-[520px]:text-sm">{item.q}</p>
-                <span className="shrink-0 rounded-2xl border border-secondary/20 bg-secondary/5 p-2 text-secondary">
-                    {open ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+
+                <span
+                    className="shrink-0 rounded-2xl border border-secondary/20 bg-secondary/5 p-2 text-secondary"
+                    aria-hidden="true"
+                >
+                    {open ? <Minus className="w-4 h-4" aria-hidden="true" focusable="false" /> : <Plus className="w-4 h-4" aria-hidden="true" focusable="false" />}
                 </span>
             </button>
 
             <div
+                id={panelId}
+                role="region"
+                aria-labelledby={buttonId}
+                // ✅ Evita que el contenido sea “focusable”/leíble cuando está cerrado
+                hidden={!open}
                 className={cx(
                     'grid transition-all duration-300 ease-out',
                     open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
@@ -60,7 +76,7 @@ function FaqRow({
                     <div className="px-6 pb-6 text-sm text-text-secondary leading-relaxed">{item.a}</div>
                 </div>
             </div>
-        </div>
+        </article>
     );
 }
 
@@ -71,8 +87,8 @@ export default function FAQSection() {
                 q: '¿Cómo empiezo un proyecto con NovaForge?',
                 a: (
                     <>
-                        Primero entendemos tu objetivo y te enviamos una propuesta con opciones (alcance, tiempos y coste).
-                        Tú eliges la opción más adecuada para la primera entrega.
+                        Primero entendemos tu objetivo y te enviamos una propuesta con opciones (alcance, tiempos y coste). Tú eliges
+                        la opción más adecuada para la primera entrega.
                     </>
                 ),
             },
@@ -80,8 +96,8 @@ export default function FAQSection() {
                 q: '¿Por qué trabajáis por fases y pagos por fase?',
                 a: (
                     <>
-                        Porque reduce riesgos para ambas partes: tú ves avances reales con entregas cerradas,
-                        y nosotros trabajamos con un alcance claro. Sin ataduras y con valor entregado en cada fase.
+                        Porque reduce riesgos para ambas partes: tú ves avances reales con entregas cerradas, y nosotros trabajamos
+                        con un alcance claro. Sin ataduras y con valor entregado en cada fase.
                     </>
                 ),
             },
@@ -89,8 +105,8 @@ export default function FAQSection() {
                 q: '¿Qué fases típicas tiene un proyecto?',
                 a: (
                     <>
-                        Suele ser: <b>maquetación en Figma</b> → <b>base de datos</b> → <b>backend/API</b> →{' '}
-                        <b>frontend/cliente</b> → integraciones → optimización y despliegue.
+                        Suele ser: <b>maquetación en Figma</b> → <b>base de datos</b> → <b>backend/API</b> → <b>frontend/cliente</b>{' '}
+                        → integraciones → optimización y despliegue.
                     </>
                 ),
             },
@@ -98,8 +114,8 @@ export default function FAQSection() {
                 q: '¿Puedo contratar solo diseño UI/UX o solo desarrollo?',
                 a: (
                     <>
-                        Sí. Podemos hacer únicamente UI/UX (Figma + prototipo) o solo desarrollo si ya tienes diseño.
-                        También podemos mejorar y unificar un producto existente.
+                        Sí. Podemos hacer únicamente UI/UX (Figma + prototipo) o solo desarrollo si ya tienes diseño. También podemos
+                        mejorar y unificar un producto existente.
                     </>
                 ),
             },
@@ -108,8 +124,8 @@ export default function FAQSection() {
                 a: (
                     <>
                         Depende del proyecto, pero normalmente trabajamos con <b>TypeScript</b>, <b>React</b> o <b>Vue 3</b>,{' '}
-                        <b>Node.js</b>, despliegue en cloud (p.ej. Railway) y autenticación con <b>JWT</b>.
-                        Para mobile usamos <b>React Native</b> y <b>Expo</b>.
+                        <b>Node.js</b>, despliegue en cloud (p.ej. Railway) y autenticación con <b>JWT</b>. Para mobile usamos{' '}
+                        <b>React Native</b> y <b>Expo</b>.
                     </>
                 ),
             },
@@ -117,8 +133,8 @@ export default function FAQSection() {
                 q: '¿Incluye mantenimiento y soporte?',
                 a: (
                     <>
-                        Podemos incluirlo como una fase adicional o como un plan mensual. Lo definimos en la propuesta
-                        según el tipo de producto y tu necesidad de evolución.
+                        Podemos incluirlo como una fase adicional o como un plan mensual. Lo definimos en la propuesta según el tipo
+                        de producto y tu necesidad de evolución.
                     </>
                 ),
             },
@@ -126,8 +142,8 @@ export default function FAQSection() {
                 q: '¿Cuánto tarda un proyecto?',
                 a: (
                     <>
-                        Depende del alcance, pero lo trabajamos por entregas. La primera fase suele ser la más rápida
-                        (diseño o MVP) para que puedas validar cuanto antes.
+                        Depende del alcance, pero lo trabajamos por entregas. La primera fase suele ser la más rápida (diseño o MVP)
+                        para que puedas validar cuanto antes.
                     </>
                 ),
             },
@@ -145,32 +161,45 @@ export default function FAQSection() {
     );
 
     const [openIdx, setOpenIdx] = useState<number | null>(0);
+    const baseId = useId();
 
     return (
-        <section className="relative z-[900] bg-white px-20 py-20 max-[900px]:px-6">
+        <section className="relative z-[900] bg-white px-20 py-20 max-[900px]:px-6" aria-labelledby={`${baseId}-title`}>
             {/* Header */}
-            <div className="flex flex-col items-center gap-4 text-center">
+            <header className="flex flex-col items-center gap-4 text-center">
                 <Pill>Preguntas frecuentes</Pill>
 
-                <h2 className="text-text-primary font-bold text-5xl leading-[1.1] max-[900px]:text-4xl max-[520px]:text-[28px]">
+                <h2
+                    id={`${baseId}-title`}
+                    className="text-text-primary font-bold text-5xl leading-[1.1] max-[900px]:text-4xl max-[520px]:text-[28px]"
+                >
                     Resolvemos tus dudas <span className="text-primary">antes de empezar</span>
                 </h2>
 
                 <p className="text-text-secondary text-xl leading-relaxed max-w-[860px] max-[900px]:text-base">
                     Respuestas directas sobre nuestro proceso, fases, pagos y tecnologías.
                 </p>
-            </div>
+            </header>
 
             {/* FAQ list */}
-            <div className="mt-12 grid grid-cols-2 gap-4 max-[1000px]:grid-cols-1">
-                {faqs.map((f, idx) => (
-                    <FaqRow
-                        key={f.q}
-                        item={f}
-                        open={openIdx === idx}
-                        onToggle={() => setOpenIdx((cur) => (cur === idx ? null : idx))}
-                    />
-                ))}
+            <div className="mt-12 grid grid-cols-2 gap-4 max-[1000px]:grid-cols-1" role="list" aria-label="Lista de preguntas frecuentes">
+                {faqs.map((f, idx) => {
+                    const buttonId = `${baseId}-faq-btn-${idx}`;
+                    const panelId = `${baseId}-faq-panel-${idx}`;
+                    const open = openIdx === idx;
+
+                    return (
+                        <div key={f.q} role="listitem">
+                            <FaqRow
+                                item={f}
+                                open={open}
+                                onToggle={() => setOpenIdx((cur) => (cur === idx ? null : idx))}
+                                buttonId={buttonId}
+                                panelId={panelId}
+                            />
+                        </div>
+                    );
+                })}
             </div>
 
             <div className="mt-10 flex justify-center">
